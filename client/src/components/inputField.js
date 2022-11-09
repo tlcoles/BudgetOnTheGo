@@ -1,10 +1,8 @@
 import React from "react";
 import { Input } from "@chakra-ui/react";
 
-export default function inputField() {
-  return(
-    <Input focusBorderColor='lime' placeholder="Sample placeholder" />;
-  );
-}
-  
-  
+const InputField = () => {
+  return <Input focusBorderColor="#2F4858" placeholder="Sample placeholder" />;
+};
+
+export default InputField;
