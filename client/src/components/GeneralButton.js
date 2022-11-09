@@ -1,12 +1,8 @@
 import React from "react";
-import { GeneralButton } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 
-const GeneralButton = (props) => {
-  return (
-    <div>
-      <button type="button">ButtonTitle</button>
-    </div>
-  );
+const GeneralButton = () => {
+  return <Button colorScheme="blue">ButtonTitle</Button>;
 };
 
 export default GeneralButton;

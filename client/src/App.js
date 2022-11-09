@@ -7,7 +7,7 @@ function App() {
   return (
     <ChakraProvider>
       <Home name="BudgetOnTheGo user" />
-      <GeneralButton /> //! TODO Take this out after you're done testing
+      <GeneralButton /> //! Take this out after you're done testing
     </ChakraProvider>
   );
 }
