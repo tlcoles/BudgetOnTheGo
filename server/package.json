@@ -1,0 +1,37 @@
+{
+  "name": "budgetonthego",
+  "version": "1.0.0",
+  "description": "BudgetOnTheGo for busy people who want to track their expenses to stay on budget",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tlcoles/BudgetOnTheGo.git"
+  },
+  "keywords": [
+    "budget",
+    "tracker",
+    "expense",
+    "tracker",
+    "react",
+    "expense",
+    "tracker"
+  ],
+  "author": "Tammi L. Coles, Henriette Kressner, Tornike Japaridze, Nirmeet Baweja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tlcoles/BudgetOnTheGo/issues"
+  },
+  "homepage": "https://github.com/tlcoles/BudgetOnTheGo#readme",
+  "dependencies": {
+    "apollo-server-express": "^3.11.1",
+    "bcrypt": "^5.1.0",
+    "express": "^4.18.2",
+    "graphql": "^16.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.7.2"
+  }
+}
