@@ -1,3 +1,5 @@
+import { extendTheme } from "@chakra-ui/react";
+
 import {
     Box,
     Flex,
@@ -21,7 +23,7 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
   } from '@chakra-ui/icons';
-  
+
   export default function WithSubnavigation() {
     const { isOpen, onToggle } = useDisclosure();
   
