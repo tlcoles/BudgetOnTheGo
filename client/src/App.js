@@ -5,7 +5,7 @@ import InputField from "./components/inputField";
 
 const App = () => {
   const [value, setValue] = React.useState("");
-  const handleChange = (event) => setValue(event.target.value);
+  const [email, setEmail] = React.useState("");
 
   return (
     <ChakraProvider>
@@ -15,7 +15,14 @@ const App = () => {
         type="email"
         placeholder="example@email.com"
         value={value}
-        onChange={handleChange}
+        setValue={setValue}
+      />
+      <InputField
+        label="Password"
+        type="password"
+        placeholder="example2@email.com"
+        value={email}
+        setValue={setEmail}
       />
     </ChakraProvider>
   );
