@@ -6,6 +6,7 @@ const GeneralButton = (props) => {
   return (
     <Button
       colorScheme="blue"
+      backgroundColor="#336699"
       color="#F9F0F6"
       minWidth="20%"
       onClick={props.handleClick}
