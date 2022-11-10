@@ -1,20 +1,14 @@
 import React from "react";
-import {
-  Input,
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-} from "@chakra-ui/react";
+import { Input, FormControl, FormLabel } from "@chakra-ui/react";
 
 const InputField = (props) => {
   return (
     <>
       <FormControl isRequired>
-        <FormLabel>{props.placeholder}</FormLabel>
+        <FormLabel>{props.label}</FormLabel>
         <Input
           focusBorderColor="#86BBD8"
-          type="email"
+          type={props.type} //e.g. email or text
           placeholder={props.placeholder}
         />
       </FormControl>
