@@ -8,8 +8,11 @@ const InputField = (props) => {
         <FormLabel>{props.label}</FormLabel>
         <Input
           focusBorderColor="#86BBD8"
-          type={props.type} //e.g. email or text
+          type={props.type}
           placeholder={props.placeholder}
+          width="auto"
+          value={props.value}
+          onChange={props.handleChange}
         />
       </FormControl>
     </>
