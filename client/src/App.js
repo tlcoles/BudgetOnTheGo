@@ -1,13 +1,12 @@
 import Home from "./pages/Home";
 import * as React from "react";
 import { ChakraProvider } from "@chakra-ui/react";
-import GeneralButton from "./components/GeneralButton";
+import { budgetTheme } from "./styles/theme";
 
 const App = () => {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={budgetTheme}>
       <Home name="BudgetOnTheGo user" />
-      <GeneralButton /> //! Take this out after you're done testing
     </ChakraProvider>
   );
 };
