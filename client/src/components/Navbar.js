@@ -15,6 +15,7 @@ import {
   Popover,
   PopoverTrigger,
   PopoverContent,
+  Spacer,
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
@@ -64,6 +65,8 @@ export default function WithSubnavigation() {
           >
             Budget On The Go
           </Text>
+
+          <Spacer />
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
