@@ -12,7 +12,7 @@ const InputField = (props) => {
         <Input
           value={props.value}
           onChange={handleChange}
-          focusBorderColor="#86BBD8"
+          focusBorderColor={"highlight"}
           type={props.type}
           placeholder={props.placeholder}
           width="auto"
