@@ -1,6 +1,7 @@
 import Home from "./pages/Home";
 import * as React from "react";
 import { ChakraProvider } from "@chakra-ui/react";
+import { budgetTheme } from "./styles/theme";
 import InputField from "./components/inputField";
 
 const App = () => {
@@ -8,7 +9,7 @@ const App = () => {
   const [email, setEmail] = React.useState("");
 
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={budgetTheme}>
       <Home name="BudgetOnTheGo user" />
       <InputField
         label="Email"
