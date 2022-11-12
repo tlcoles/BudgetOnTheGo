@@ -1,5 +1,6 @@
 import React from "react";
 import GeneralButton from "../components/GeneralButton";
+import HeadingH1Component from "../components/Heading";
 import InputField from "../components/InputField";
 
 const SignUpPage = () => {
@@ -15,6 +16,7 @@ const SignUpPage = () => {
 
   return (
     <div>
+      <HeadingH1Component />
       <InputField
         label={"Username"}
         value={username}
