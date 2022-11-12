@@ -3,11 +3,9 @@ import React from "react";
 
 const HeadingH1Component = () => {
   return (
-    <div>
-      <Heading as="h1" mb={4} color={secondary}>
-        Budget On The Go
-      </Heading>
-    </div>
+    <Heading as="h1" mt={4} mb={4} color={"secondary"}>
+      Budget On The Go
+    </Heading>
   );
 };
 
