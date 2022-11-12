@@ -11,7 +11,6 @@ const App = () => {
       <Navbar />
       <Container>
         <Home name="BudgetOnTheGo user" />
-        <SignUpPage />
       </Container>
     </ChakraProvider>
   );

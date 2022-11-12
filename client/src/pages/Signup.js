@@ -4,13 +4,13 @@ import HeadingH1Component from "../components/Heading";
 import InputField from "../components/InputField";
 import { Container } from "@chakra-ui/react";
 
-const SignUpPage = () => {
+const SignupPage = () => {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [budget, setBudget] = React.useState("");
   const [email, setEmail] = React.useState("");
 
-  const SignUp = () => {
+  const Signup = () => {
     console.log(username, budget, email, password);
     // in here we're not gonna clg the values bu actually make request to the api to log us in
   };
@@ -46,7 +46,7 @@ const SignUpPage = () => {
         placeholder={"Password"}
         setValue={setPassword}
       />
-      <GeneralButton buttonTitle={"Sign up"} handleClick={SignUp} />
+      <GeneralButton buttonTitle={"Sign up"} handleClick={Signup} />
       <Container>Already a member?</Container>
       <Container>
         <b>Log in</b> instead
@@ -55,4 +55,4 @@ const SignUpPage = () => {
   );
 };
 
-export default SignUpPage;
+export default SignupPage;
