@@ -1,5 +1,4 @@
 import { extendTheme } from "@chakra-ui/react";
-
 import React, { Component } from "react";
 import { budgetTheme } from "../styles/theme";
 
