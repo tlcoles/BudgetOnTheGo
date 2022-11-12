@@ -2,6 +2,7 @@ import React from "react";
 import GeneralButton from "../components/GeneralButton";
 import HeadingH1Component from "../components/Heading";
 import InputField from "../components/InputField";
+import { Container } from "@chakra-ui/react";
 
 const SignUpPage = () => {
   const [username, setUsername] = React.useState("");
