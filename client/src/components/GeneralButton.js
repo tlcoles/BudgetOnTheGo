@@ -17,30 +17,4 @@ const GeneralButton = (props) => {
   );
 };
 
-// import GeneralButton from "./components/GeneralButton";
-
-// const App = () => {
-//   const handleLogin = (event) => {
-//     console.log("loginClicked");
-//     console.log(event.target);
-//   };
-//   return (
-//     <ChakraProvider theme={budgetTheme}>
-//       <Home name="BudgetOnTheGo user" />
-//       <div>
-//         <GeneralButton buttonTitle="Log in" handleClick={handleLogin} />
-//       </div>
-//       <div>
-//         <GeneralButton buttonTitle="Sign up" handleClick={handleSignUp} />
-//       </div>
-//       <div>
-//         <GeneralButton buttonTitle="Submit" handleClick={handleSubmit} />
-//       </div>
-//       <div>
-//         <GeneralButton buttonTitle="Apply" handleClick={handleApply} />
-//       </div>
-//     </ChakraProvider>
-//   );
-// };
-
 export default GeneralButton;
