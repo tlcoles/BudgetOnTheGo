@@ -8,7 +8,7 @@ const GeneralButton = (props) => {
       colorScheme="blue"
       backgroundColor={"button"}
       color={"primary"}
-      minWidth="8%"
+      minWidth="10%"
       onClick={props.handleClick}
     >
       {props.buttonTitle}
