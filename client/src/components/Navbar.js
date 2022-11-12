@@ -1,6 +1,7 @@
 import { extendTheme } from "@chakra-ui/react";
 
 import React, { Component } from "react";
+import { budgetTheme } from "../styles/theme";
 
 import {
   Box,
@@ -66,6 +67,7 @@ export default function WithSubnavigation() {
             Budget On The Go
           </Text>
 
+          {/* Comment: Spacer splits logo to left and remaining navigation to right */}
           <Spacer />
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -90,7 +92,7 @@ export default function WithSubnavigation() {
 
 const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("gray.800", "white");
+  const linkHoverColor = useColorModeValue("colors.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
