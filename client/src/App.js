@@ -3,7 +3,7 @@ import * as React from "react";
 import { ChakraProvider, Container } from "@chakra-ui/react";
 import { budgetTheme } from "./styles/theme";
 import Navbar from "./components/Navbar";
-import LoginPage from "./pages/Login";
+import AddExpensePage from "./pages/AddExpense";
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
       <Navbar />
       <Container>
         <Home name="BudgetOnTheGo user" />
-        <LoginPage />
+        <AddExpensePage />
       </Container>
     </ChakraProvider>
   );
