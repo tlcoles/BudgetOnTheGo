@@ -58,7 +58,7 @@ export default function WithSubnavigation() {
             aria-label={"Toggle Navigation"}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} mt={2} justify={{ base: "center", md: "start" }}>
+        <Flex flex={{ base: 1 }} mt={2} ml={10} justify={{ base: "center", md: "start" }}>
           <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
