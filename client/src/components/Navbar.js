@@ -1,7 +1,7 @@
 import { extendTheme } from "@chakra-ui/react";
 import React, { Component } from "react";
 import { budgetTheme } from "../styles/theme";
-import logo from "../images/bothg-logo.png";
+import logo from "../images/botg-logo.png";
 
 import {
   Box,
