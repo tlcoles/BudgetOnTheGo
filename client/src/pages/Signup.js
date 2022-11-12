@@ -2,7 +2,7 @@ import React from "react";
 import GeneralButton from "../components/GeneralButton";
 import HeadingH1Component from "../components/Heading";
 import InputField from "../components/InputField";
-import { Container } from "@chakra-ui/react";
+import { Stack, Text } from "@chakra-ui/react";
 
 const SignupPage = () => {
   const [username, setUsername] = React.useState("");
@@ -47,10 +47,12 @@ const SignupPage = () => {
         setValue={setPassword}
       />
       <GeneralButton buttonTitle={"Sign up"} handleClick={Signup} />
-      <Container>Already a member?</Container>
-      <Container>
-        <b>Log in</b> instead
-      </Container>
+      <Stack>
+        <Text>Already a member?</Text>
+        <Text>
+          <b>Log in</b> instead
+        </Text>
+      </Stack>
     </div>
   );
 };
