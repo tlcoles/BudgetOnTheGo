@@ -6,9 +6,10 @@ const SignUpPage = () => {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [budget, setBudget] = React.useState("");
+  const [email, setEmail] = React.useState("");
 
   const SignUp = () => {
-    console.log(username, budget, password);
+    console.log(username, budget, email, password);
     // in here we're not gonna clg the values bu actually make request to the api to log us in
   };
 
@@ -27,6 +28,13 @@ const SignUpPage = () => {
         type={"number"}
         placeholder={"0.00"}
         setValue={setBudget}
+      />
+      <InputField
+        label={"Email"}
+        value={email}
+        type={"email"}
+        placeholder={"Email"}
+        setValue={setEmail}
       />
       <InputField
         label={"Password"}
