@@ -47,6 +47,10 @@ const SignUpPage = () => {
         setValue={setPassword}
       />
       <GeneralButton buttonTitle={"Sign up"} handleClick={SignUp} />
+      <Container>Already a member?</Container>
+      <Container>
+        <b>Log in</b> instead
+      </Container>
     </div>
   );
 };
