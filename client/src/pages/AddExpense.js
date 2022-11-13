@@ -1,5 +1,6 @@
 import React from "react";
 import { Select } from "@chakra-ui/react";
+import HeadingH1Component from "../components/Heading";
 import InputField from "../components/InputField";
 import GeneralButton from "../components/GeneralButton";
 
@@ -13,8 +14,11 @@ const AddExpensePage = () => {
     // in here we're not gonna clg the values bu actually make request to the api to log us in
   };
 
+  const heading = "Add your expense";
+
   return (
     <div>
+      <HeadingH1Component heading={heading} />
       <InputField
         label={"Expense Item"}
         value={expenseItem}
@@ -23,10 +27,10 @@ const AddExpensePage = () => {
         setValue={setExpenseItem}
       />
       <InputField
-        label={"Amount in €"}
+        label={"Amount"}
         value={amount}
         type={"number"}
-        placeholder={"5.00 €"}
+        placeholder={"5.00"}
         setValue={setAmount}
       />
       <Select
