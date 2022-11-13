@@ -1,14 +1,16 @@
 import React from "react";
 import { Badge } from "@chakra-ui/react";
 
+{
+  /* Budget needs to come from the signup page */
+}
 const Budget = () => {
   return (
-    <div>
-      <Badge colorScheme="green">
-        {/* Budget needs to come from the signup page */}
-        Budget: 2000
-      </Badge>
-    </div>
+    <Badge colorScheme="green">
+      Budget
+      <br />
+      2000
+    </Badge>
   );
 };
 

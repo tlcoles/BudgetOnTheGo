@@ -20,11 +20,7 @@ const SeeExpenses = () => {
   return (
     <div>
       <h1>Insert Henriette Header</h1>
-      <div>
-        {Budget}
-        {Remaining}
-        {ExpenseTotal}
-      </div>
+
       <TableContainer>
         <Table variant="simple">
           <Thead>
@@ -60,7 +56,9 @@ const SeeExpenses = () => {
           </Tfoot>
         </Table>
       </TableContainer>
-      ;
+      <div>
+        <Budget /> | <Remaining /> | <ExpenseTotal />
+      </div>
     </div>
   );
 };

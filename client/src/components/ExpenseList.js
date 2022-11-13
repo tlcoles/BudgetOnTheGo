@@ -3,15 +3,15 @@ import ExpenseItem from "./ExpenseItem";
 
 const ExpenseList = () => {
   const expenses = [
-    { name: "shopping", cost: 40 },
-    { name: "holiday", cost: 400 },
-    { name: "car service", cost: 50 },
+    { item: "shopping", amount: 40 },
+    { item: "holiday", amount: 400 },
+    { item: "car service", amount: 50 },
   ];
 
   return (
     <ul>
       {expenses.map((expense) => (
-        <ExpenseItem name={expense.name} cost={expense.cost} />
+        <ExpenseItem item={expense.item} amount={expense.amount} />
       ))}
     </ul>
   );

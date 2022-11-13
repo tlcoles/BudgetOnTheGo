@@ -1,14 +1,14 @@
 import React from "react";
 import { Badge } from "@chakra-ui/react";
 
-const ExpenseTotal = () => {
+const Remaining = () => {
   return (
     <Badge colorScheme="red">
-      Expenses
+      Remaining
       <br />
       1000
     </Badge>
   );
 };
 
-export default ExpenseTotal;
+export default Remaining;
