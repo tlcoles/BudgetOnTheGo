@@ -12,6 +12,8 @@ import { ChakraProvider, Container } from "@chakra-ui/react";
 import { budgetTheme } from "./styles/theme";
 import Navbar from "./components/Navbar";
 import LoginPage from "./pages/Login";
+import SignupPage from "./pages/Signup";
+import AddExpensePage from "./pages/AddExpense";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -44,6 +46,8 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home name="BudgetOnTheGo user" />} />
               <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignupPage />} />
+              <Route path="/add" element={<AddExpensePage />} />
             </Routes>
           </Router>
         </Container>
