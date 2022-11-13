@@ -5,7 +5,7 @@ import InputField from "../components/InputField";
 import GeneralButton from "../components/GeneralButton";
 
 const AddExpensePage = () => {
-  const [expenseItem, setExpenseItem] = React.useState("");
+  const [item, setItem] = React.useState("");
   const [amount, setAmount] = React.useState("");
   const [value, setValue] = React.useState("");
 
@@ -20,11 +20,11 @@ const AddExpensePage = () => {
     <div>
       <HeadingH1Component heading={heading} />
       <InputField
-        label={"Expense Item"}
-        value={expenseItem}
+        label={"Item"}
+        value={item}
         type={"text"}
         placeholder={"Breakfast"}
-        setValue={setExpenseItem}
+        setValue={setItem}
       />
       <InputField
         label={"Amount"}
