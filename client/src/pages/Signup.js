@@ -15,9 +15,11 @@ const SignupPage = () => {
     // in here we're not gonna clg the values bu actually make request to the api to log us in
   };
 
+  const heading = "Budget On The Go";
+
   return (
     <div>
-      <HeadingH1Component />
+      <HeadingH1Component heading={heading} />
       <InputField
         label={"Username"}
         value={username}
