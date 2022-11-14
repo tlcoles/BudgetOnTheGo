@@ -17,11 +17,12 @@ const SettingsPage = () => {
     <div>
       <HeadingSettings />
       <InputField
-        label={"Username"}
+        label={"Username "}
         value={username}
         type={"text"}
         placeholder={"Username"}
         setValue={setUsername}
+        show={true}
       />
       <InputField
         label={"Email"}
@@ -29,6 +30,7 @@ const SettingsPage = () => {
         type={"email"}
         placeholder={"Email"}
         setValue={setEmail}
+        show={true}
       />
       <InputField
         label={"Password"}
@@ -36,6 +38,7 @@ const SettingsPage = () => {
         type={"password"}
         placeholder={"Password"}
         setValue={setPassword}
+        show={true}
       />
       <GeneralButton buttonTitle={"Apply"} handleClick={Settings} />
     </div>
