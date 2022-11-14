@@ -1,4 +1,3 @@
-import Home from "./pages/Home";
 import * as React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
@@ -40,17 +39,16 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <ChakraProvider theme={budgetTheme}>
-        <Navbar />
-        <Container>
-          <Router>
+        <Router>
+          <Navbar />
+          <Container>
             <Routes>
-              <Route path="/" element={<Home name="BudgetOnTheGo user" />} />
+              <Route path="/" element={<AddExpensePage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
-              <Route path="/add" element={<AddExpensePage />} />
             </Routes>
-          </Router>
-        </Container>
+          </Container>
+        </Router>
       </ChakraProvider>
     </ApolloProvider>
   );
