@@ -17,6 +17,7 @@ const InputField = (props) => {
           focusBorderColor={"highlight"}
           type={props.type}
           placeholder={props.placeholder}
+          my={5}
           width="auto"
         />
       </FormControl>
