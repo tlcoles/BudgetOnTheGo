@@ -12,7 +12,6 @@ const App = () => {
       <Navbar />
       <Container>
         <Home name="BudgetOnTheGo user" />
-        <LoginPage />
         <SeeExpenses />
       </Container>
     </ChakraProvider>
