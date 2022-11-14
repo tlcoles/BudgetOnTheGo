@@ -31,11 +31,7 @@ const SeeExpenses = () => {
         <p><strong>Your monthly budget is: 200.00€</strong></p>
         <Heading as='h3' size='lg'>THIS IS WHERE THE PIE CHART WOULD GO</Heading>
         <Heading as='h3' size='lg'>Details</Heading>
-        <Select placeholder='Past expenses for last:'>
-          <option value='option30'>30 days</option>
-          <option value='option7'>7 days</option>
-          <option value='option1'>1 day</option>
-        </Select>
+        <Heading as='h3' size='lg'>THIS IS WHERE THE DROPPDOWN WOULD GO</Heading>
         <TableContainer>
           <Table variant="simple">
             <Thead>
