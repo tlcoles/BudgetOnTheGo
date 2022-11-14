@@ -24,7 +24,6 @@ const SettingsPage = () => {
         type={"text"}
         placeholder={"Username"}
         setValue={setUsername}
-        show={false}
       />
       <InputField
         label={"Email"}
@@ -32,7 +31,6 @@ const SettingsPage = () => {
         type={"email"}
         placeholder={"Email"}
         setValue={setEmail}
-        show={false}
       />
       <InputField
         label={"Password"}
@@ -40,7 +38,6 @@ const SettingsPage = () => {
         type={"password"}
         placeholder={"Password"}
         setValue={setPassword}
-        show={false}
       />
       <GeneralButton buttonTitle={"Apply"} handleClick={Settings} />
     </div>
