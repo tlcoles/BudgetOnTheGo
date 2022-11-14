@@ -9,8 +9,6 @@ import {
 } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
 
-//comment for usage in parent element is below
-
 const InputField = (props) => {
   const handleChange = (event) => {
     return props.setValue(event.target.value);
