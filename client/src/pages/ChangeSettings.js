@@ -38,7 +38,7 @@ const SettingsPage = () => {
         type={"password"}
         placeholder={"Password"}
         setValue={setPassword}
-        show={false}
+        show={true}
       />
       <GeneralButton buttonTitle={"Apply"} handleClick={Settings} />
     </div>
