@@ -1,6 +1,6 @@
 import React from "react";
 import GeneralButton from "../components/GeneralButton";
-import HeadingSettings from "../components/HeadingSettings";
+import HeadingH1Component from "../components/Heading";
 import InputField from "../components/InputField";
 
 const SettingsPage = () => {
@@ -13,9 +13,11 @@ const SettingsPage = () => {
     // in here we're not gonna clg the values bu actually make request to the api to log us in
   };
 
+  const heading = "Account Information";
+
   return (
     <div>
-      <HeadingSettings />
+      <HeadingH1Component heading={heading} />
       <InputField
         label={"Username "}
         value={username}
