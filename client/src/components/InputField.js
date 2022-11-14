@@ -5,9 +5,7 @@ import {
   FormLabel,
   InputGroup,
   InputRightElement,
-  HStack,
   Flex,
-  Spacer,
 } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
 
@@ -23,8 +21,8 @@ const InputField = (props) => {
     <>
       <FormControl isRequired>
         <FormLabel>{props.label}</FormLabel>
-        <Flex>
-          <InputGroup size="md">
+        <InputGroup size="md">
+          <Flex justifyContent={"left"}>
             <Input
               value={props.value}
               onChange={handleChange}
@@ -40,8 +38,8 @@ const InputField = (props) => {
             ) : (
               <></>
             )}
-          </InputGroup>
-        </Flex>
+          </Flex>
+        </InputGroup>
       </FormControl>
     </>
   );
