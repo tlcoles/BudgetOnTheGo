@@ -1,8 +1,6 @@
 import React from "react";
 import { Input, FormControl, FormLabel } from "@chakra-ui/react";
 
-//comment for usage in parent element is below
-
 const InputField = (props) => {
   const handleChange = (event) => {
     return props.setValue(event.target.value);
