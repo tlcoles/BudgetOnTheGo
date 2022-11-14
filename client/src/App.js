@@ -3,7 +3,6 @@ import * as React from "react";
 import { ChakraProvider, Container } from "@chakra-ui/react";
 import { budgetTheme } from "./styles/theme";
 import Navbar from "./components/Navbar";
-import Chart from "./pages/Chart";
 
 const App = () => {
   return (
