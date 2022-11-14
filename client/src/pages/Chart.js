@@ -8,17 +8,18 @@ const defaultLabelStyle = {
 
 function Chart() {
   const data = [
-    { title: "One", value: 10, color: "#E38627" },
-    { title: "Two", value: 15, color: "#C13C37" },
-    { title: "Three", value: 20, color: "#6A2135" },
+    { title: "Food & Drink", value: 76, color: "#86BBD8" },
+    { title: "Travel", value: 50, color: "#C13C37" },
+    { title: "Entertainment", value: 35, color: "#C4B454" },
+    { title: "Home", value: 20, color: "#AFE1AF" },
+    { title: "Other", value: 40, color: "#CF9FFF" },
   ];
   return (
     <div>
       <PieChart
         data={data}
-        label={({ dataEntry }) =>
-          Math.round(dataEntry.percentage) + "% " + dataEntry.title
-        }
+        radius={30}
+        label={({ dataEntry }) => Math.round(dataEntry.percentage) + "% "}
         labelStyle={defaultLabelStyle}
       />
     </div>
