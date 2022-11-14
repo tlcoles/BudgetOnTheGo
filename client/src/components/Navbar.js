@@ -1,6 +1,4 @@
-import { extendTheme } from "@chakra-ui/react";
-import React, { Component } from "react";
-import { budgetTheme } from "../styles/theme";
+import React from "react";
 import logo from "../images/botg-logo.png";
 
 import {
@@ -27,6 +25,41 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+
+const NAV_ITEMS = [
+  {
+    label: "Add expense",
+    href: "/",
+  },
+  {
+    label: "See expenses",
+    children: [
+      {
+        label: "1 Day",
+        subLabel: "Review all expenses within the last 24 hours.",
+        href: "#",
+      },
+      {
+        label: "7 Days",
+        subLabel: "Review all expenses within the last 7 days.",
+        href: "#",
+      },
+      {
+        label: "30 Days",
+        subLabel: "Review all expenses within the last 30 days.",
+        href: "#",
+      },
+    ],
+  },
+  {
+    label: "Change settings",
+    href: "#",
+  },
+  {
+    label: "Log out",
+    href: "#",
+  },
+];
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -252,45 +285,3 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
     </Stack>
   );
 };
-
-interface NavItem {
-  label: string;
-  subLabel?: string;
-  children?: Array<NavItem>;
-  href?: string;
-}
-
-const NAV_ITEMS: Array<NavItem> = [
-  {
-    label: "Add expense",
-    href: "/",
-  },
-  {
-    label: "See expenses",
-    children: [
-      {
-        label: "1 Day",
-        subLabel: "Review all expenses within the last 24 hours.",
-        href: "#",
-      },
-      {
-        label: "7 Days",
-        subLabel: "Review all expenses within the last 7 days.",
-        href: "#",
-      },
-      {
-        label: "30 Days",
-        subLabel: "Review all expenses within the last 30 days.",
-        href: "#",
-      },
-    ],
-  },
-  {
-    label: "Change settings",
-    href: "#",
-  },
-  {
-    label: "Log out",
-    href: "#",
-  },
-];
