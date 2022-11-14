@@ -58,14 +58,23 @@ export default function WithSubnavigation() {
             aria-label={"Toggle Navigation"}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} mt={2} ml={10} justify={{ base: "center", md: "start" }}>
+        <Flex
+          flex={{ base: 1 }}
+          mt={2}
+          ml={10}
+          justify={{ base: "center", md: "start" }}
+        >
           <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             mt={-3}
             color={useColorModeValue("gray.800", "white")}
           >
-            <img style={{ width: 40, height: 40 }} src={logo} alt="Budget On The Go" />
+            <img
+              style={{ width: 40, height: 40 }}
+              src={logo}
+              alt="Budget On The Go"
+            />
           </Text>
 
           {/* Comment: Spacer splits logo to left and remaining navigation to right */}
@@ -83,7 +92,6 @@ export default function WithSubnavigation() {
           spacing={6}
         ></Stack>
       </Flex>
-
 
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
@@ -255,7 +263,7 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Add expense",
-    href: "#",
+    href: "/",
   },
   {
     label: "See expenses",
