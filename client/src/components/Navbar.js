@@ -33,6 +33,7 @@ const NAV_ITEMS = [
   },
   {
     label: "See expenses",
+    href: "/expenses",
     children: [
       {
         label: "1 Day",
@@ -57,7 +58,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Log out",
-    href: "#",
+    href: "/login",
   },
 ];
 
