@@ -53,7 +53,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Change settings",
-    href: "#",
+    href: "/settings",
   },
   {
     label: "Log out",
