@@ -5,7 +5,6 @@ import React from "react";
 
 import {
   Heading,
-  Select,
   Table,
   Thead,
   Tbody,
@@ -18,6 +17,8 @@ import {
 } from "@chakra-ui/react";
 
 import HeadingH1Component from "../components/Heading";
+import Chart from "../components/Chart";
+import DaysSelector from "../components/DaysSelector";
 
 
 const heading = "Your past expenses";
@@ -29,9 +30,9 @@ const SeeExpenses = () => {
         <HeadingH1Component heading={heading} />
         <p><strong>56.79€</strong></p>
         <p><strong>Your monthly budget is: 200.00€</strong></p>
-        <Heading as='h3' size='lg'>THIS IS WHERE THE PIE CHART WOULD GO</Heading>
+        <Chart />
         <Heading as='h3' size='lg'>Details</Heading>
-        <Heading as='h3' size='lg'>THIS IS WHERE THE DROPPDOWN WOULD GO</Heading>
+        <DaysSelector />
         <TableContainer>
           <Table variant="simple">
             <Thead>
