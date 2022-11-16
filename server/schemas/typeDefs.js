@@ -6,6 +6,7 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
+    expenses: [Expense]!
   }
 
   type Expense {
@@ -23,7 +24,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    expenses: [Expense] //! is this enough for 30/7/1 queries? 
+    expenses: [Expense] 
   }
 
   type Mutation {
@@ -34,10 +35,9 @@ const typeDefs = gql`
       budget: Number!
     ): Auth
     updateUser(
-      username: String!
-      email: String!
-      password: String!
-      budget: Number! //! Can we change username, email, password without changing budget?
+      username: String
+      email: String
+      password: String
     ): Auth
     login(email: String!, password: String!): Auth
     addExpense(item: String!, category: String!, amount: Number!): Expense
