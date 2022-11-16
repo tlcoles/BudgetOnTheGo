@@ -41,3 +41,5 @@ const startApolloServer = async (typeDefs, resolvers) => {
 //     console.log(`Listening on PORT ${PORT}.`);
 //   });
 // });
+
+startApolloServer(typeDefs, resolvers);
