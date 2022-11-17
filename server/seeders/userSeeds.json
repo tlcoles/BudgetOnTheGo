@@ -1,0 +1,20 @@
+[
+  {
+    "username": "pinkpanther",
+    "email": "pink.panther@test.co.uk",
+    "password": "Ilovecoffe",
+    "budget": "200"
+  },
+  {
+    "username": "Mickey",
+    "email": "mickey.mouse@test.co.uk",
+    "password": "cheese123",
+    "budget": "150"
+  },
+  {
+    "username": "DonaldD",
+    "email": "donald.duck@test.co.uk",
+    "password": "quackquack",
+    "budget": "100"
+  }
+]

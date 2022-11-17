@@ -1,5 +1,11 @@
+const { Expense } = require("../models");
+
 const resolvers = {
-  Query: {},
+  Query: {
+    expenses: async () => {
+      return Expense.find();
+    },
+  },
 };
 
 module.exports = resolvers;
