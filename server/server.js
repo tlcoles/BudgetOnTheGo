@@ -1,6 +1,7 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
+//!require middleware here and add to const server
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
 
+//!update this to the client side built html file later
 app.get("/", (req, res) => res.json({ message: "Hello World" }));
 
 const startApolloServer = async (typeDefs, resolvers) => {
@@ -35,11 +37,5 @@ const startApolloServer = async (typeDefs, resolvers) => {
     });
   });
 };
-
-// db.once("open", () => {
-//   app.listen(PORT, () => {
-//     console.log(`Listening on PORT ${PORT}.`);
-//   });
-// });
 
 startApolloServer(typeDefs, resolvers);
