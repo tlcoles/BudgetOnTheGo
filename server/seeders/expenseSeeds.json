@@ -2,25 +2,25 @@
   {
     "item": "coffee",
     "category": "Food & Drink",
-    "amount": "2,60",
+    "amount": "2.60",
     "createdAt": "03.11.2022"
   },
   {
     "item": "train ticket",
     "category": "Travel",
-    "amount": "9,60",
+    "amount": "9.60",
     "createdAt": "03.11.2022"
   },
   {
     "item": "concert ticket",
     "category": "Entertainment",
-    "amount": "65,70",
+    "amount": "65.70",
     "createdAt": "03.11.2022"
   },
   {
     "item": "coffee mug",
     "category": "Home",
-    "amount": "15,00",
+    "amount": "15.00",
     "createdAt": "03.11.2022"
   }
 ]
