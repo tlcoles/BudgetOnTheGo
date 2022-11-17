@@ -10,6 +10,7 @@ const GeneralButton = (props) => {
       color={"primary"}
       minWidth="10%"
       my={5}
+      type={props.type}
       onClick={props.handleClick}
     >
       {props.buttonTitle}

@@ -9,7 +9,6 @@ const typeDefs = gql`
     budget: Int
     expenses: [Expense]
   }
-
   type Expense {
     _id: ID
     item: String
@@ -18,16 +17,13 @@ const typeDefs = gql`
     createdAt: String
     user: User
   }
-
   type Auth {
     token: ID!
     user: User
   }
-
   type Query {
     expenses: [Expense]
   }
-
   type Mutation {
     addUser(
       username: String!
