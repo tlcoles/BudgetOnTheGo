@@ -1,9 +1,9 @@
-const { Expense } = require("../models/Expense");
+const { Expense } = require("../models");
 
 const resolvers = {
   Query: {
     expenses: async () => {
-      return Expense.find({});
+      return Expense.find();
     },
   },
 };
