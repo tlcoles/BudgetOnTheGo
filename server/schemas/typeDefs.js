@@ -6,6 +6,8 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
+    budget: Int
+    expenses: [Expense]
   }
 
   type Expense {
@@ -14,7 +16,7 @@ const typeDefs = gql`
     category: String
     amount: Float
     createdAt: String
-    userId: ID
+    user: User
   }
 
   type Auth {
