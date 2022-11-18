@@ -13,6 +13,7 @@ const LoginPage = () => {
   // const [username, setUsername] = React.useState("");
   // const [password, setPassword] = React.useState("");
   const [formState, setFormState] = useState({ username: "", password: "" });
+  //! currently error and data not in use, see 21-MERN, ex 26 Login.js example
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
   const handleChange = (event) => {
@@ -52,6 +53,7 @@ const LoginPage = () => {
         <InputField
           value={formState.username}
           label={"Username"}
+          name={"username"}
           type={"text"}
           placeholder={"Username"}
           onChange={handleChange}
@@ -59,6 +61,7 @@ const LoginPage = () => {
         <InputField
           value={formState.password}
           label={"Password"}
+          name={"password"}
           type={"password"}
           placeholder={"Password"}
           onChange={handleChange}
@@ -69,9 +72,14 @@ const LoginPage = () => {
           buttonTitle={"Log in"}
         />
       </form>
+
+      {error && <div>{error.message}</div>}
+
       <Stack>
         <Text>Still not a member?</Text>
-        <Text><b>Sign up!</b></Text>
+        <Text>
+          <b>Sign up!</b>
+        </Text>
       </Stack>
     </div>
   );
