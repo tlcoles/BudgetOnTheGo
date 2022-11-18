@@ -26,6 +26,7 @@ const typeDefs = gql`
 
   type Query {
     expenses: [Expense]
+    users: [User]
   }
 
   type Mutation {
@@ -36,7 +37,7 @@ const typeDefs = gql`
       budget: Int!
     ): Auth
     updateUser(username: String!, email: String!, password: String!): Auth
-    login(email: String!, password: String!): Auth
+    login(username: String!, password: String!): Auth
     addExpense(item: String!, category: String!, amount: Float!): Expense
   }
 `;
