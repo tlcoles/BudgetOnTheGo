@@ -9,7 +9,7 @@ import HeadingH1Component from "../components/Heading";
 import InputField from "../components/InputField";
 import { Stack, Text } from "@chakra-ui/react";
 
-const LoginPage = () => {
+const LoginPage = (props) => {
   // const [username, setUsername] = React.useState("");
   // const [password, setPassword] = React.useState("");
   const [formState, setFormState] = useState({ username: "", password: "" });
