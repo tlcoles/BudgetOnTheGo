@@ -3,12 +3,12 @@ import { Input, FormControl, FormLabel } from "@chakra-ui/react";
 
 const InputField = (props) => {
 
-  console.log(props);
   return (
     <>
       <FormControl isRequired>
         <FormLabel>{props.label}</FormLabel>
         <Input
+          value={props.value}
           focusBorderColor={"highlight"}
           name={props.name}
           type={props.type}
