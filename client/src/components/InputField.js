@@ -10,8 +10,10 @@ const InputField = (props) => {
         <FormLabel>{props.label}</FormLabel>
         <Input
           focusBorderColor={"highlight"}
+          name={props.name}
           type={props.type}
           placeholder={props.placeholder}
+          onChange={props.onChange}
           my={5}
           width="auto"
         />
