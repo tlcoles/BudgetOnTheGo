@@ -1,4 +1,5 @@
 const { Expense, User } = require("../models");
+const { AuthenticationError } = require("apollo-server-express");
 
 const resolvers = {
   Query: {
@@ -7,56 +8,64 @@ const resolvers = {
       return await Expense.find({}).populate("user");
     },
     users: async () => {
-      return await User.find({});
+      return await User.find({}).populate("expense");
     },
     //! another query for the profile info (PASSWORD IS OPTIONAL)
-    //! OPTIONAL QUERY
+    user: async (parent, { username }) => {
+      return User.findOne({ username }).populate("expenses");
+    },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate("expenses");
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    }, //! Check with Tudor
   },
 
-  // Mutation: {
-  //   addUser: async (parent, args) => {
-  //     const user = await User.create(args);
-  //     const token = signToken(user);
+  Mutation: {
+    addUser: async (parent, { username, email, password, budget }) => {
+      const user = await User.create({ username, email, password, budget });
+      const token = signToken(user);
+      return { token, user };
+    },
+    updateUser: async (parent, args, context) => {
+      if (context.user) {
+        return User.findByIdAndUpdate(context.user.id, args, {
+          new: true,
+        });
+      }
+      throw new AuthenticationError("Not logged in");
+    },
 
-  //     return { token, user };
-  //   },
-  //   updateUser: async (parent, args, context) => {
-  //     if (context.user) {
-  //       return User.findByIdAndUpdate(context.user.id, args, {
-  //         new: true,
-  //       });
-  //     }
-  //     throw new AuthenticationError("Not logged in");
-  //   },
+    login: async (parent, { username, password }) => {
+      //! add email validation //! Check with Tudor
+      const user = await User.findOne({ username });
 
-  //   login: async (parent, { email, password }) => {
-  //     //! add email validation
-  //     const user = await User.findOne({ email });
+      if (!user) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
 
-  //     if (!user) {
-  //       throw new AuthenticationError("Incorrect credentials");
-  //     }
+      const correctPw = await user.isCorrectPassword(password);
 
-  //     const correctPw = await user.isCorrectPassword(password);
+      if (!correctPw) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
 
-  //     if (!correctPw) {
-  //       throw new AuthenticationError("Incorrect credentials");
-  //     }
+      const token = signToken(user);
+      return { token, user };
+    },
 
-  //     const token = signToken(user);
-  //     return { token, user };
-  //   },
+    //! Context needed?
+    addExpense: async (parent, { item, category, amount, userId }) => {
+      const expense = await Expense.create({ item, category, amount, userId });
 
-  //   addExpense: async (parent, { item, category, amount, userId }) => {
-  //     const expense = await Expense.create({ item, category, amount, userId });
-
-  //     await User.findOneAndUpdate(
-  //       { _id: userId },
-  //       { $addToSet: { expenses: expense._id } }
-  //     );
-  //     return expense;
-  //   },
-  // },
+      await User.findOneAndUpdate(
+        { _id: userId },
+        { $addToSet: { expenses: expense._id } }
+      );
+      return expense;
+    },
+  },
 };
 
 module.exports = resolvers;
