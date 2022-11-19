@@ -10,11 +10,12 @@ db.once("open", async () => {
   await Expense.deleteMany({});
 
   // bulk create each model
-  const users = await User.insertMany(userData);
-  const expenses = await Expense.insertMany(expenseData);
+  const promises = userData.map((user) => User.create(user));
+  await Promise.all(promises);
 
-  // users.forEach()
-  // console.log(expenses);
+  const users = await User.find({});
+
+  const expenses = await Expense.insertMany(expenseData);
 
   for (newExpense of expenses) {
     // select a random user from users array
