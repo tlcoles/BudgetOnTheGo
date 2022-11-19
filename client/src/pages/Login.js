@@ -8,6 +8,7 @@ import GeneralButton from "../components/GeneralButton";
 import HeadingH1Component from "../components/Heading";
 import InputField from "../components/InputField";
 import { Stack, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const LoginPage = (props) => {
   // const [username, setUsername] = React.useState("");
@@ -77,9 +78,9 @@ const LoginPage = (props) => {
 
       <Stack>
         <Text>Still not a member?</Text>
-        <Text>
+        <Link to="/signup">
           <b>Sign up!</b>
-        </Text>
+        </Link>
       </Stack>
     </div>
   );
