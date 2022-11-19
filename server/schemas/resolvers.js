@@ -1,4 +1,4 @@
-const { Expense } = require("../models");
+const { Expense, User } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 
