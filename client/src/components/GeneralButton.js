@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@chakra-ui/react";
 
 const GeneralButton = (props) => {
-  console.log(props);
+  
   return (
     <Button
       colorScheme="blue"
@@ -10,6 +10,7 @@ const GeneralButton = (props) => {
       color={"primary"}
       minWidth="10%"
       my={5}
+      type={props.type}
       onClick={props.handleClick}
     >
       {props.buttonTitle}
