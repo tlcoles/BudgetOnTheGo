@@ -9,6 +9,9 @@ const resolvers = {
     expenses: async () => {
       return await Expense.find({}).populate("user");
     },
+    expense: async (parent, { expenseId }) => {
+      return Expense.findOne({ _id: expenseId });
+    },
     users: async () => {
       return await User.find({}).populate("expenses");
     },
@@ -68,36 +71,48 @@ const resolvers = {
     },
 
     //! Context needed?
-    addExpense: async (parent, { item, category, amount, userId }) => {
-      const expense = await Expense.create({ item, category, amount, userId });
+    // addExpense: async (parent, { item, category, amount, userId }, context) => {
+    //   const expense = await Expense.create({ item, category, amount, userId });
 
-      await User.findOneAndUpdate(
-        { _id: userId },
-        { $addToSet: { expenses: expense._id } }
-      );
-      return expense;
-    },
+    //   await User.findOneAndUpdate(
+    //     { _id: userId },
+    //     { $addToSet: { expenses: expense._id } }
+    //   );
+    //   return expense;
+    // },
+
+    //! TRIED MANY DIFfERENT VERSIONS, NOTHING WORKED
+    //   addExpense: async (parent, { userId, item, category, amount }, context) => {
+    //     if (context.user) {
+    //       return User.findOneAndUpdate(
+    //         { _id: userId },
+    //         { $addToSet: { expenses: item, category, amount } }
+    //       );
+    //     }
+    //     throw new AuthenticationError("You need to be logged in!");
+    //   },
+    // },
+
+    //! KEEPING THIS
+    // Mutation: {
+    //   login: async (parent, { username, password }) => {
+    //     const user = await User.findOne({ username });
+
+    //     if (!user) {
+    //       throw new AuthenticationError("No user found with this username");
+    //     }
+
+    //     const correctPw = await user.isCorrectPassword(password);
+
+    //     if (!correctPw) {
+    //       throw new AuthenticationError("Incorrect credentials");
+    //     }
+
+    //     const token = signToken(user);
+
+    //     return { token, user };
+    //   },
   },
-
-  // Mutation: {
-  //   login: async (parent, { username, password }) => {
-  //     const user = await User.findOne({ username });
-
-  //     if (!user) {
-  //       throw new AuthenticationError("No user found with this username");
-  //     }
-
-  //     const correctPw = await user.isCorrectPassword(password);
-
-  //     if (!correctPw) {
-  //       throw new AuthenticationError("Incorrect credentials");
-  //     }
-
-  //     const token = signToken(user);
-
-  //     return { token, user };
-  //   },
-  // },
 };
 
 module.exports = resolvers;
