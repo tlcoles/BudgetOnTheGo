@@ -10,7 +10,7 @@ const AddExpensePage = () => {
   const [formState, setFormState] = useState({
     item: "",
     amount: "",
-    HEREISWHEREIWANTCATEGORYVALUE: "",
+    categories: "",
   });
 
   const handleChange = (event) => {
@@ -19,6 +19,13 @@ const AddExpensePage = () => {
     setFormState({
       ...formState,
       [name]: value,
+    });
+  };
+
+  const handleSelectChange = (data) => {
+    setFormState({
+      ...formState,
+      ["categories"]: data.value,
     });
   };
 
@@ -80,9 +87,8 @@ const AddExpensePage = () => {
           className="chakra-react-select"
           classNamePrefix="chakra-react-select"
           options={categories}
-          onChange={(e)=>{
-            setSelectedValue(e.target.value)}}
-          selectedOptionStyle="color"
+          selectedOptionStyle="check"
+          onChange={handleSelectChange}
           chakraStyles={{
             dropdownIndicator: (provided) => ({
               ...provided,
