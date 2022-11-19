@@ -3,7 +3,12 @@ import { FormControl, FormLabel } from "@chakra-ui/react";
 import HeadingH1Component from "../components/Heading";
 import InputField from "../components/InputField";
 import GeneralButton from "../components/GeneralButton";
-import { Select, useChakraSelectProps } from "chakra-react-select";
+import { Select } from "chakra-react-select";
+import { useMutation } from "@apollo/client";
+
+//! import ADD_EXPENSE when defined.
+// import { ADD_EXPENSE } from "../utils/mutations";
+
 
 const AddExpensePage = () => {
 
@@ -12,6 +17,9 @@ const AddExpensePage = () => {
     amount: "",
     categories: "",
   });
+
+  //! remove comments below when ADD_EXPENSE has been defined in mutations.js
+  // const [addExpense, { error, data }] = useMutation(ADD_EXPENSE);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -44,11 +52,10 @@ const AddExpensePage = () => {
     event.preventDefault();
     console.log(formState);
     try {
-      const { data } = await login({
+      const { data } = await addExpense({
         variables: { ...formState },
       });
 
-      Auth.login(data.login.token);
     } catch (error) {
       console.error(error);
     }
@@ -57,7 +64,7 @@ const AddExpensePage = () => {
     setFormState({
       item: "",
       amount: "",
-      value: "",
+      categories: "",
     });
   };
 
@@ -113,4 +120,3 @@ const AddExpensePage = () => {
 };
 
 export default AddExpensePage;
-
