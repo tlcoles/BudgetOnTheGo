@@ -1,6 +1,7 @@
 const { Expense, User } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
+const bcrypt = require("bcrypt");
 
 const resolvers = {
   Query: {
@@ -9,7 +10,7 @@ const resolvers = {
       return await Expense.find({}).populate("user");
     },
     users: async () => {
-      return await User.find({}).populate("expense");
+      return await User.find({}).populate("expenses");
     },
     //! another query for the profile info (PASSWORD IS OPTIONAL)
     user: async (parent, { username }) => {
@@ -31,10 +32,20 @@ const resolvers = {
     },
     updateUser: async (parent, args, context) => {
       if (context.user) {
-        return User.findByIdAndUpdate(context.user.id, args, {
+        const { username, password, email } = args;
+        let newUserData;
+
+        newUserData = {
+          username,
+          email,
+          password: password ? await bcrypt.hash(args.password, 10) : undefined,
+        };
+
+        return User.findByIdAndUpdate(context.user._id, newUserData, {
           new: true,
         });
       }
+
       throw new AuthenticationError("Not logged in");
     },
 
@@ -68,25 +79,25 @@ const resolvers = {
     },
   },
 
-  Mutation: {
-    login: async (parent, { username, password }) => {
-      const user = await User.findOne({ username });
+  // Mutation: {
+  //   login: async (parent, { username, password }) => {
+  //     const user = await User.findOne({ username });
 
-      if (!user) {
-        throw new AuthenticationError("No user found with this username");
-      }
+  //     if (!user) {
+  //       throw new AuthenticationError("No user found with this username");
+  //     }
 
-      const correctPw = await user.isCorrectPassword(password);
+  //     const correctPw = await user.isCorrectPassword(password);
 
-      if (!correctPw) {
-        throw new AuthenticationError("Incorrect credentials");
-      }
+  //     if (!correctPw) {
+  //       throw new AuthenticationError("Incorrect credentials");
+  //     }
 
-      const token = signToken(user);
+  //     const token = signToken(user);
 
-      return { token, user };
-    },
-  },
+  //     return { token, user };
+  //   },
+  // },
 };
 
 module.exports = resolvers;
