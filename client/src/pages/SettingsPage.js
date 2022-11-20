@@ -2,16 +2,23 @@ import React from "react";
 import GeneralButton from "../components/GeneralButton";
 import HeadingH1Component from "../components/Heading";
 import InputField from "../components/InputField";
+import { UPDATE_USER } from "../utils/mutations";
 
 const SettingsPage = () => {
   const [username, setUsername] = React.useState("username");
   const [password, setPassword] = React.useState("password");
   const [email, setEmail] = React.useState("email");
 
-  const Settings = () => {
-    console.log(username, email, password);
-    // in here we're not gonna clg the values bu actually make request to the api to log us in
+  const [updateUser] = useMutation(UPDATE_USER);
+
+  const update = async () => {
+    const { data } = await updateUser({
+      variables: { username, email, password },
+    });
   };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
   const heading = "Account Information";
 
@@ -20,6 +27,7 @@ const SettingsPage = () => {
       <HeadingH1Component heading={heading} />
       <InputField
         label={"Username "}
+        name={"username"}
         value={username}
         type={"text"}
         placeholder={"Username"}
@@ -28,6 +36,7 @@ const SettingsPage = () => {
       <InputField
         label={"Email"}
         value={email}
+        name={"email"}
         type={"email"}
         placeholder={"Email"}
         setValue={setEmail}
@@ -35,6 +44,7 @@ const SettingsPage = () => {
       <InputField
         label={"Password"}
         value={password}
+        name={"password"}
         type={"password"}
         placeholder={"Password"}
         setValue={setPassword}
