@@ -12,3 +12,11 @@
 - [License](#license)
 - [Contributing](#contributing)
 - [Contact](#contact)
+
+## User Story
+
+```md
+AS A busy person on the go
+I WANT to use an app to track my day-to-day expenses while I am out and about
+SO THAT I can control my expenses better and keep them within a certain budget.
+```
