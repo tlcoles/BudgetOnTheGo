@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FormControl, FormLabel } from "@chakra-ui/react";
+import { FormControl } from "@chakra-ui/react";
 import HeadingH1Component from "../components/Heading";
 import InputField from "../components/InputField";
 import GeneralButton from "../components/GeneralButton";
@@ -7,11 +7,9 @@ import { Select } from "chakra-react-select";
 import { useMutation } from "@apollo/client";
 
 //! import ADD_EXPENSE when defined.
-// import { ADD_EXPENSE } from "../utils/mutations";
-
+import { ADD_EXPENSE } from "../utils/mutations";
 
 const AddExpensePage = () => {
-
   const [formState, setFormState] = useState({
     item: "",
     amount: "",
@@ -19,7 +17,8 @@ const AddExpensePage = () => {
   });
 
   //! remove comments below when ADD_EXPENSE has been defined in mutations.js
-  // const [addExpense, { error, data }] = useMutation(ADD_EXPENSE);
+  // eslint-disable-next-line no-unused-vars
+  const [addExpense, { error, data }] = useMutation(ADD_EXPENSE);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -52,10 +51,10 @@ const AddExpensePage = () => {
     event.preventDefault();
     console.log(formState);
     try {
+      // eslint-disable-next-line no-unused-vars
       const { data } = await addExpense({
         variables: { ...formState },
       });
-
     } catch (error) {
       console.error(error);
     }
@@ -71,50 +70,52 @@ const AddExpensePage = () => {
   return (
     <div>
       <HeadingH1Component heading={heading} />
-      <form onSubmit={handleFormSubmit}>
-        <InputField
-          label={"Item"}
-          value={formState.item}
-          name={"item"}
-          type={"text"}
-          placeholder={"Breakfast"}
-          onChange={handleChange}
-        />
-        <InputField
-          label={"Amount"}
-          value={formState.amount}
-          name={"amount"}
-          type={"number"}
-          placeholder={"5.00"}
-          onChange={handleChange}
-        />
-        <Select
-          name="categories"
-          placeholder="Select a category"
-          className="chakra-react-select"
-          classNamePrefix="chakra-react-select"
-          options={categories}
-          selectedOptionStyle="check"
-          onChange={handleSelectChange}
-          chakraStyles={{
-            dropdownIndicator: (provided) => ({
-              ...provided,
-              bg: "transparent",
-              px: 2,
-              cursor: "inherit",
-            }),
-            indicatorSeparator: (provided) => ({
-              ...provided,
-              display: "none",
-            }),
-          }}
-        />
-        <GeneralButton
-          onClick={handleChange}
-          type={"submit"}
-          buttonTitle={"Submit"}
-        />
-      </form>
+      <FormControl>
+        <form onSubmit={handleFormSubmit}>
+          <InputField
+            label={"Item"}
+            value={formState.item}
+            name={"item"}
+            type={"text"}
+            placeholder={"Breakfast"}
+            onChange={handleChange}
+          />
+          <InputField
+            label={"Amount"}
+            value={formState.amount}
+            name={"amount"}
+            type={"number"}
+            placeholder={"5.00"}
+            onChange={handleChange}
+          />
+          <Select
+            name="categories"
+            placeholder="Select a category"
+            className="chakra-react-select"
+            classNamePrefix="chakra-react-select"
+            options={categories}
+            selectedOptionStyle="check"
+            onChange={handleSelectChange}
+            chakraStyles={{
+              dropdownIndicator: (provided) => ({
+                ...provided,
+                bg: "transparent",
+                px: 2,
+                cursor: "inherit",
+              }),
+              indicatorSeparator: (provided) => ({
+                ...provided,
+                display: "none",
+              }),
+            }}
+          />
+          <GeneralButton
+            onClick={handleChange}
+            type={"submit"}
+            buttonTitle={"Submit"}
+          />
+        </form>
+      </FormControl>
     </div>
   );
 };
