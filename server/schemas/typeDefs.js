@@ -27,6 +27,7 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     me: User
+    aggregatedPersonalChart: [Expense]
   }
   type Mutation {
     addUser(
