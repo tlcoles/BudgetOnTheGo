@@ -13,7 +13,7 @@ const AddExpensePage = () => {
   const [formState, setFormState] = useState({
     item: "",
     amount: "",
-    categories: "",
+    category: "",
   });
 
   //! remove comments below when ADD_EXPENSE has been defined in mutations.js
@@ -32,7 +32,7 @@ const AddExpensePage = () => {
   const handleSelectChange = (data) => {
     setFormState({
       ...formState,
-      ["categories"]: data.value,
+      ["category"]: data.value,
     });
   };
 
@@ -89,7 +89,7 @@ const AddExpensePage = () => {
             onChange={handleChange}
           />
           <Select
-            name="categories"
+            name="category"
             placeholder="Select a category"
             className="chakra-react-select"
             classNamePrefix="chakra-react-select"
