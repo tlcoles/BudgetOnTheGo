@@ -84,3 +84,10 @@ This section lists tools, frameworks and libraries used to develop the "Budget o
 * ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 * ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
 
+## Screenshots
+
+### Login page
+
+### "Add Expense page"
+
+### "See expenses page"
