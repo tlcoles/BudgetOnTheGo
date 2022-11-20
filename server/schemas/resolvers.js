@@ -24,7 +24,7 @@ const resolvers = {
         return User.findOne({ _id: context.user._id }).populate("expenses");
       }
       throw new AuthenticationError("You need to be logged in!");
-    }, //! Check with Tudor
+    },
   },
 
   Mutation: {
@@ -40,7 +40,7 @@ const resolvers = {
 
         newUserData = {
           username,
-          email: email ? await email : undefined,
+          email,
           password: password ? await bcrypt.hash(args.password, 10) : undefined,
         };
 
