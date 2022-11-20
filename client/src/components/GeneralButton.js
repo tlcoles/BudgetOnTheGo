@@ -2,7 +2,6 @@ import React from "react";
 import { Button } from "@chakra-ui/react";
 
 const GeneralButton = (props) => {
-  
   return (
     <Button
       colorScheme="blue"
