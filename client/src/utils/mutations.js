@@ -58,9 +58,6 @@ export const ADD_EXPENSE = gql`
       createdAt
       user {
         _id
-        username
-        email
-        budget
       }
     }
   }
