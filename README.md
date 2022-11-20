@@ -46,3 +46,7 @@ This command, ran in your terminal, installs the latest npm version.
    ```
 
 > We recommend using [Google Chrome](https://www.google.com/chrome/) for better user experience.
+
+## Installation
+
+The "Budget on the Go" application is licensed uder the MIT License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
