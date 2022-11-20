@@ -16,9 +16,9 @@
 ## User Story
 
 ```md
-<strong>AS A</strong> busy person on the go
-<strong>I WANT</strong> to use an app to track my day-to-day expenses while I am out and about
-<strong>SO THAT</strong> I can control my expenses better and keep them within a certain budget.
+AS A busy person on the go
+I WANT to use an app to track my day-to-day expenses while I am out and about
+SO THAT I can control my expenses better and keep them within a certain budget.
 ```
 ## Installation
 
