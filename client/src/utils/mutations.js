@@ -48,4 +48,20 @@ export const UPDATE_USER = gql`
   }
 `;
 
-//!ADD EXPENSE!!!
+export const ADD_EXPENSE = gql`
+  mutation addExpense($item: String!, $category: String!, $amount: Float!) {
+    addExpense(item: $item, category: $category, amount: $amount) {
+      _id
+      item
+      category
+      amount
+      createdAt
+      user {
+        _id
+        username
+        email
+        budget
+      }
+    }
+  }
+`;
