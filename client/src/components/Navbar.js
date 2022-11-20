@@ -1,6 +1,4 @@
 import React from "react";
-import logo from "../images/botg-logo.png";
-
 import {
   Box,
   Flex,
@@ -25,6 +23,10 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+
+import Auth from "../utils/auth";
+
+import logo from "../images/botg-logo.png";
 
 const NAV_ITEMS = [
   {
@@ -57,8 +59,8 @@ const NAV_ITEMS = [
     href: "/settings",
   },
   {
-    label: "Log out",
-    href: "/login",
+    label: Auth.loggedIn() ? "Log out" : "Log In",
+    href: Auth.loggedIn() ? "/logout" : "/login",
   },
 ];
 
