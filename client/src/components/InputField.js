@@ -2,7 +2,6 @@ import React from "react";
 import { Input, FormControl, FormLabel } from "@chakra-ui/react";
 
 const InputField = (props) => {
-
   return (
     <>
       <FormControl isRequired>
