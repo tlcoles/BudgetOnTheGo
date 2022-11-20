@@ -63,7 +63,7 @@ const AddExpensePage = () => {
     setFormState({
       item: "",
       amount: "",
-      categories: "",
+      category: "",
     });
   };
 
