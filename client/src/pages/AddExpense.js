@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { FormControl } from "@chakra-ui/react";
+import React from "react";
 import HeadingH1Component from "../components/Heading";
 import InputField from "../components/InputField";
 import GeneralButton from "../components/GeneralButton";
@@ -10,30 +9,34 @@ import { useMutation } from "@apollo/client";
 import { ADD_EXPENSE } from "../utils/mutations";
 
 const AddExpensePage = () => {
-  const [formState, setFormState] = useState({
-    item: "",
-    amount: "",
-    category: "",
-  });
+  const [item, setItem] = React.useState("");
+  const [amount, setAmount] = React.useState("");
+  const [category, setCategory] = React.useState("");
 
-  //! remove comments below when ADD_EXPENSE has been defined in mutations.js
+  const [addExpense] = useMutation(ADD_EXPENSE);
+
+  // submit form
   // eslint-disable-next-line no-unused-vars
-  const [addExpense, { error, data }] = useMutation(ADD_EXPENSE);
-
+  const handleSubmit = async () => {
+    console.log(item, amount, category);
+    const { data } = await addExpense({
+      variables: { item, amount: parseInt(amount), category },
+    });
+  };
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+    // eslint-disable-next-line default-case
+    switch (name) {
+    case "item":
+      return setItem(value);
+    case "amount":
+      return setAmount(value);
+    }
   };
 
   const handleSelectChange = (data) => {
-    setFormState({
-      ...formState,
-      ["category"]: data.value,
-    });
+    return setCategory(data.value);
   };
 
   const heading = "Add your expense";
@@ -46,76 +49,51 @@ const AddExpensePage = () => {
     { value: "Other", label: "Other", color: "#FF5630" },
   ];
 
-  // submit form
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formState);
-    try {
-      // eslint-disable-next-line no-unused-vars
-      const { data } = await addExpense({
-        variables: { ...formState },
-      });
-    } catch (error) {
-      console.error(error);
-    }
-
-    // clear form values
-    setFormState({
-      item: "",
-      amount: "",
-      category: "",
-    });
-  };
-
   return (
     <div>
       <HeadingH1Component heading={heading} />
-      <FormControl>
-        <form onSubmit={handleFormSubmit}>
-          <InputField
-            label={"Item"}
-            value={formState.item}
-            name={"item"}
-            type={"text"}
-            placeholder={"Breakfast"}
-            onChange={handleChange}
-          />
-          <InputField
-            label={"Amount"}
-            value={formState.amount}
-            name={"amount"}
-            type={"number"}
-            placeholder={"5.00"}
-            onChange={handleChange}
-          />
-          <Select
-            name="category"
-            placeholder="Select a category"
-            className="chakra-react-select"
-            classNamePrefix="chakra-react-select"
-            options={categories}
-            selectedOptionStyle="check"
-            onChange={handleSelectChange}
-            chakraStyles={{
-              dropdownIndicator: (provided) => ({
-                ...provided,
-                bg: "transparent",
-                px: 2,
-                cursor: "inherit",
-              }),
-              indicatorSeparator: (provided) => ({
-                ...provided,
-                display: "none",
-              }),
-            }}
-          />
-          <GeneralButton
-            onClick={handleChange}
-            type={"submit"}
-            buttonTitle={"Submit"}
-          />
-        </form>
-      </FormControl>
+      <InputField
+        label={"Item"}
+        value={item}
+        name={"item"}
+        type={"text"}
+        placeholder={"Breakfast"}
+        onChange={handleChange}
+      />
+      <InputField
+        label={"Amount"}
+        value={amount}
+        name={"amount"}
+        type={"number"}
+        placeholder={"5.00"}
+        onChange={handleChange}
+      />
+      <Select
+        name="category"
+        placeholder="Select a category"
+        className="chakra-react-select"
+        classNamePrefix="chakra-react-select"
+        options={categories}
+        selectedOptionStyle="check"
+        onChange={handleSelectChange}
+        chakraStyles={{
+          dropdownIndicator: (provided) => ({
+            ...provided,
+            bg: "transparent",
+            px: 2,
+            cursor: "inherit",
+          }),
+          indicatorSeparator: (provided) => ({
+            ...provided,
+            display: "none",
+          }),
+        }}
+      />
+      <GeneralButton
+        handleClick={handleSubmit}
+        type={"submit"}
+        buttonTitle={"Submit"}
+      />
     </div>
   );
 };
