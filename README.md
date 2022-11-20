@@ -88,6 +88,8 @@ This section lists tools, frameworks and libraries used to develop the "Budget o
 
 ### Login page
 
+![image](https://github.com/tlcoles/BudgetOnTheGo/blob/d357cc03573ba6cc554e61462ca84348bb7207b3/images/Screenshot1.png)
+
 ### "Add Expense page"
 
 ### "See expenses page"
