@@ -58,6 +58,7 @@ const NAV_ITEMS = [
     label: "Change settings",
     href: "/settings",
   },
+  // Render the button based on the user's login status
   {
     label: Auth.loggedIn() ? "Log out" : "Log In",
     href: Auth.loggedIn() ? "/logout" : "/login",
