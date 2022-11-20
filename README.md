@@ -10,7 +10,9 @@
 - [User Story](#userstory)
 - [Installation](#installation)
 - [License](#license)
-- [Contributing](#contributing)
+- [Requirements](#requirements)
+- [Technologies](#technologies)
+- [Screenshot](#screenshot)
 - [Contact](#contact)
 
 ## User Story
@@ -47,6 +49,21 @@ This command, ran in your terminal, installs the latest npm version.
 
 > We recommend using [Google Chrome](https://www.google.com/chrome/) for better user experience.
 
-## Installation
+## License
 
-The "Budget on the Go" application is licensed uder the MIT License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+The "Budget on the Go" application is licensed uder the MIT License 
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Requirements
+
+* Use React, GraphQL, Node.js, Express.js, MongoDB and the Mongoose ODM
+* Use queries and mutations for retrieving, adding, updating, and deleting data
+* Be deployed on Heroku (with data)
+* Have a polished and responsive UI
+* Be interactive (i.e., accept and respond to user input)
+* Include authentication (JWT)
+* Protect sensitive API key information on the server
+* Have a clean repository that meets quality coding standards
+* Have a high-quality README that includes name, description, technologies, screenshot, and link to deployed application
+
+
