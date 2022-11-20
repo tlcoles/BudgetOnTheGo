@@ -1,8 +1,11 @@
+/* eslint-disable indent */
 import React from "react";
 import GeneralButton from "../components/GeneralButton";
 import HeadingH1Component from "../components/Heading";
 import InputField from "../components/InputField";
+import { useMutation } from "@apollo/client";
 import { UPDATE_USER } from "../utils/mutations";
+import Auth from "../utils/auth";
 
 const SettingsPage = () => {
   const [username, setUsername] = React.useState("username");
@@ -15,10 +18,22 @@ const SettingsPage = () => {
     const { data } = await updateUser({
       variables: { username, email, password },
     });
+    Auth.login(data.addUser.token);
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+
+    // eslint-disable-next-line default-case
+    switch (name) {
+      case "username":
+        return setUsername(value);
+      case "password":
+        return setPassword(value);
+      case "email":
+        return setEmail(value);
+    }
+  };
 
   const heading = "Account Information";
 
@@ -31,7 +46,7 @@ const SettingsPage = () => {
         value={username}
         type={"text"}
         placeholder={"Username"}
-        setValue={setUsername}
+        onChange={handleChange}
       />
       <InputField
         label={"Email"}
@@ -39,7 +54,7 @@ const SettingsPage = () => {
         name={"email"}
         type={"email"}
         placeholder={"Email"}
-        setValue={setEmail}
+        onChange={handleChange}
       />
       <InputField
         label={"Password"}
@@ -47,9 +62,9 @@ const SettingsPage = () => {
         name={"password"}
         type={"password"}
         placeholder={"Password"}
-        setValue={setPassword}
+        onChange={handleChange}
       />
-      <GeneralButton buttonTitle={"Apply"} handleClick={Settings} />
+      <GeneralButton buttonTitle={"Apply"} handleClick={update} />
     </div>
   );
 };
