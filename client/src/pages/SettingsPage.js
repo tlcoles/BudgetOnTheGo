@@ -5,7 +5,7 @@ import HeadingH1Component from "../components/Heading";
 import InputField from "../components/InputField";
 import { useMutation } from "@apollo/client";
 import { UPDATE_USER } from "../utils/mutations";
-import Auth from "../utils/auth";
+// import Auth from "../utils/auth";
 
 const SettingsPage = () => {
   const [username, setUsername] = React.useState("username");
@@ -15,10 +15,10 @@ const SettingsPage = () => {
   const [updateUser] = useMutation(UPDATE_USER);
 
   const update = async () => {
-    const { data } = await updateUser({
+    await updateUser({
       variables: { username, email, password },
     });
-    Auth.login(data.addUser.token);
+    // Auth.login(data.addUser.token);
   };
 
   const handleChange = (event) => {
