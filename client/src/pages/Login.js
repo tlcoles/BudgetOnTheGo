@@ -10,12 +10,12 @@ import InputField from "../components/InputField";
 import { Stack, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-const LoginPage = (props) => {
+const LoginPage = () => {
   // const [username, setUsername] = React.useState("");
   // const [password, setPassword] = React.useState("");
   const [formState, setFormState] = useState({ username: "", password: "" });
   //! currently error and data not in use, see 21-MERN, ex 26 Login.js example
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login, { error }] = useMutation(LOGIN_USER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
