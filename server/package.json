@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "BudgetOnTheGo for busy people who want to track their expenses to stay on budget",
   "main": "server.js",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
