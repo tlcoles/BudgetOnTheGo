@@ -20,7 +20,7 @@ export const dayOptions = [
   { value: "1", label: "1 day", color: "#FF5630" },
 ];
 
-const DaysSelector = (props) => {
+const DaysSelector = () => {
   return (
     <FormControl p={4}>
       <FormLabel>Past expenses for last:</FormLabel>
