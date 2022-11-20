@@ -24,7 +24,23 @@ const resolvers = {
         return User.findOne({ _id: context.user._id }).populate("expenses");
       }
       throw new AuthenticationError("You need to be logged in!");
-    }, //! Check with Tudor
+    },
+    aggregatedPersonalChart: async (parent, args, context) => {
+      if (context.user) {
+        const data = await Expense.aggregate([
+          { $match: { user: { $eq: { $toObjectId: context.user._id } } } },
+          {
+            $group: {
+              _id: "$category",
+              value: { $sum: "$amount" },
+            },
+          },
+        ]);
+        console.log(data);
+        return data;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
 
   Mutation: {
