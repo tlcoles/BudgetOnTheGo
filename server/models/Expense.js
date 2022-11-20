@@ -28,17 +28,19 @@ const expenseSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-  },
-  {
-    toJSON: {
-      virtuals: true,
-    },
   }
+  //!use in case we want to transform the date
+  // {
+  //   toJSON: {
+  //     virtuals: true,
+  //   },
+  // }
 );
 
-expenseSchema.virtual("formattedCreatedAt").get(function () {
-  return new Date(this.createdAt);
-});
+//!Use for transforming the date (numbers) into an actual date
+// expenseSchema.virtual("formattedCreatedAt").get(function () {
+//   return new Date(this.createdAt);
+// });
 
 const Expense = model("Expense", expenseSchema);
 
