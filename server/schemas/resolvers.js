@@ -40,7 +40,7 @@ const resolvers = {
 
         newUserData = {
           username,
-          email,
+          email: email ? await email : undefined,
           password: password ? await bcrypt.hash(args.password, 10) : undefined,
         };
 
