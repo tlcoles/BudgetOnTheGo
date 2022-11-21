@@ -21,7 +21,7 @@ const SettingsPage = () => {
 
   const update = async () => {
     await updateUser({
-      variables: { username, email, password },
+      variables: { username },
     });
   };
   const { data } = useQuery(QUERY_ME);
@@ -30,14 +30,14 @@ const SettingsPage = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    // eslint-disable-next-line default-case
+    //eslint-disable-next-line default-case
     switch (name) {
       case "username":
         return setUsername(value);
-      // case "password":
-      //   return setPassword(value);
-      // case "email":
-      //   return setEmail(value);
+      case "password":
+        return setPassword(value);
+      case "email":
+        return setEmail(value);
     }
   };
 
@@ -49,9 +49,10 @@ const SettingsPage = () => {
         value={username}
         name={"username"}
         type={"text"}
-        placeholder={"Username"}
+        placeholder={myUsername}
         onChange={handleChange}
       />
+      {/* Keeping for later usage */}
       {/* <InputFieldNotReq
         label={"Email"}
         value={email}
