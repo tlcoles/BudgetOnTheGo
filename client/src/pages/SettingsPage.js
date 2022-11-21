@@ -2,15 +2,16 @@
 import React from "react";
 import GeneralButton from "../components/GeneralButton";
 import HeadingH1Component from "../components/Heading";
-import InputField from "../components/InputField";
+// import InputField from "../components/InputField";
 import { useMutation } from "@apollo/client";
 import { UPDATE_USER } from "../utils/mutations";
+import InputFieldNotReq from "../components/InputFieldNotReq";
 // import Auth from "../utils/auth";
 
 const SettingsPage = () => {
-  const [username, setUsername] = React.useState("username");
-  const [password, setPassword] = React.useState("password");
-  const [email, setEmail] = React.useState("email");
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [email, setEmail] = React.useState("");
 
   const [updateUser] = useMutation(UPDATE_USER);
 
@@ -40,15 +41,15 @@ const SettingsPage = () => {
   return (
     <div>
       <HeadingH1Component heading={heading} />
-      <InputField
-        label={"Username "}
-        name={"username"}
+      <InputFieldNotReq
+        label={"Username"}
         value={username}
+        name={"username"}
         type={"text"}
         placeholder={"Username"}
         onChange={handleChange}
       />
-      <InputField
+      <InputFieldNotReq
         label={"Email"}
         value={email}
         name={"email"}
@@ -56,7 +57,7 @@ const SettingsPage = () => {
         placeholder={"Email"}
         onChange={handleChange}
       />
-      <InputField
+      <InputFieldNotReq
         label={"Password"}
         value={password}
         name={"password"}
