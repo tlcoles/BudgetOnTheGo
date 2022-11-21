@@ -1,20 +1,53 @@
 import React from "react";
-import { Select } from "@chakra-ui/react";
 import HeadingH1Component from "../components/Heading";
 import InputField from "../components/InputField";
 import GeneralButton from "../components/GeneralButton";
+import { Select } from "chakra-react-select";
+import { useMutation } from "@apollo/client";
+
+//! import ADD_EXPENSE when defined.
+import { ADD_EXPENSE } from "../utils/mutations";
 
 const AddExpensePage = () => {
   const [item, setItem] = React.useState("");
   const [amount, setAmount] = React.useState("");
-  const [value, setValue] = React.useState("");
+  const [category, setCategory] = React.useState("");
 
-  const submit = () => {
-    console.log(expenseItem);
-    // in here we're not gonna clg the values bu actually make request to the api to log us in
+  const [addExpense] = useMutation(ADD_EXPENSE);
+
+  // submit form
+  // eslint-disable-next-line no-unused-vars
+  const handleSubmit = async () => {
+    console.log(item, amount, category);
+    const { data } = await addExpense({
+      variables: { item, amount: parseInt(amount), category },
+    });
+  };
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    // eslint-disable-next-line default-case
+    switch (name) {
+    case "item":
+      return setItem(value);
+    case "amount":
+      return setAmount(value);
+    }
+  };
+
+  const handleSelectChange = (data) => {
+    return setCategory(data.value);
   };
 
   const heading = "Add your expense";
+
+  const categories = [
+    { value: "Food & Drink", label: "Food & Drink", color: "#0052CC" },
+    { value: "Travel", label: "Travel", color: "#5243AA" },
+    { value: "Entertainment", label: "Entertainment", color: "#FF5630" },
+    { value: "Home", label: "Home", color: "#FF5630" },
+    { value: "Other", label: "Other", color: "#FF5630" },
+  ];
 
   return (
     <div>
@@ -22,31 +55,45 @@ const AddExpensePage = () => {
       <InputField
         label={"Item"}
         value={item}
+        name={"item"}
         type={"text"}
         placeholder={"Breakfast"}
-        setValue={setItem}
+        onChange={handleChange}
       />
       <InputField
         label={"Amount"}
         value={amount}
+        name={"amount"}
         type={"number"}
         placeholder={"5.00"}
-        setValue={setAmount}
+        onChange={handleChange}
       />
       <Select
+        name="category"
         placeholder="Select a category"
-        focusBorderColor={"highlight"}
-        variant="outline"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      >
-        <option value="Food & Drink">Food & Drink</option>
-        <option value="Travel">Travel</option>
-        <option value="Entertainment">Entertainment</option>
-        <option value="Home">Home</option>
-        <option value="Other">Other</option>
-      </Select>
-      <GeneralButton buttonTitle={"Submit"} handleClick={submit} />
+        className="chakra-react-select"
+        classNamePrefix="chakra-react-select"
+        options={categories}
+        selectedOptionStyle="check"
+        onChange={handleSelectChange}
+        chakraStyles={{
+          dropdownIndicator: (provided) => ({
+            ...provided,
+            bg: "transparent",
+            px: 2,
+            cursor: "inherit",
+          }),
+          indicatorSeparator: (provided) => ({
+            ...provided,
+            display: "none",
+          }),
+        }}
+      />
+      <GeneralButton
+        handleClick={handleSubmit}
+        type={"submit"}
+        buttonTitle={"Submit"}
+      />
     </div>
   );
 };
