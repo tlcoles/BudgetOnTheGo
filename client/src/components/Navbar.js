@@ -36,23 +36,23 @@ const NAV_ITEMS = [
   {
     label: "See expenses",
     href: "/expenses",
-    children: [
-      {
-        label: "1 Day",
-        subLabel: "Review all expenses within the last 24 hours.",
-        href: "#",
-      },
-      {
-        label: "7 Days",
-        subLabel: "Review all expenses within the last 7 days.",
-        href: "#",
-      },
-      {
-        label: "30 Days",
-        subLabel: "Review all expenses within the last 30 days.",
-        href: "#",
-      },
-    ],
+    // children: [
+    //   {
+    //     label: "1 Day",
+    //     subLabel: "Review all expenses within the last 24 hours.",
+    //     href: "#",
+    //   },
+    //   {
+    //     label: "7 Days",
+    //     subLabel: "Review all expenses within the last 7 days.",
+    //     href: "#",
+    //   },
+    //   {
+    //     label: "30 Days",
+    //     subLabel: "Review all expenses within the last 30 days.",
+    //     href: "#",
+    //   },
+    // ],
   },
   {
     label: "Change settings",
