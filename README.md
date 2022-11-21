@@ -7,12 +7,12 @@
 ## Table of Contents
 
 - [Description](#description)
-- [User Story](#userstory)
+- [User Story](#user-story)
 - [Installation](#installation)
 - [License](#license)
 - [Requirements](#requirements)
 - [Technologies](#technologies)
-- [Screenshot](#screenshot)
+- [Screenshots](#screenshots)
 - [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
 
