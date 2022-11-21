@@ -36,7 +36,7 @@ const SeeExpenses = () => {
     var timeStampCon =
       d.getDate() +
       "/" +
-      d.getMonth() +
+      (d.getMonth() +1) +
       "/" +
       d.getFullYear();
 
