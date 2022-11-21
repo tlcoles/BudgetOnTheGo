@@ -19,6 +19,7 @@ const AddExpensePage = () => {
   // eslint-disable-next-line no-unused-vars
   const handleSubmit = async () => {
     console.log(item, amount, category);
+    // eslint-disable-next-line no-unused-vars
     const { data } = await addExpense({
       variables: { item, amount: parseInt(amount), category },
     });
