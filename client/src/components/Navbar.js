@@ -1,6 +1,4 @@
 import React from "react";
-import logo from "../images/botg-logo.png";
-
 import {
   Box,
   Flex,
@@ -25,6 +23,10 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+
+import Auth from "../utils/auth";
+
+import logo from "../images/botg-logo.png";
 
 const NAV_ITEMS = [
   {
@@ -56,9 +58,11 @@ const NAV_ITEMS = [
     label: "Change settings",
     href: "/settings",
   },
+  // Render the button based on the user's login status
+  // Make sure to display the login page after the user logs out
   {
-    label: "Log out",
-    href: "/login",
+    label: Auth.loggedIn() ? "Log out" : "Log In",
+    href: Auth.loggedIn() ? "/login" : "/login",
   },
 ];
 
