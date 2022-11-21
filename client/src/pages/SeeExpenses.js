@@ -20,7 +20,7 @@ import {
 
 import HeadingH1Component from "../components/Heading";
 import Chart from "../components/Chart";
-import DaysSelector from "../components/DaysSelector";
+// import DaysSelector from "../components/DaysSelector";
 
 const heading = "Your past expenses";
 
@@ -29,6 +29,15 @@ const SeeExpenses = () => {
 
   const expensesList = data?.me.expenses || [];
   const budget = data?.me.budget || 0;
+
+  //timestamp conversion
+  const convertedDate = function (timestamp) {
+    var d = new Date(parseInt(timestamp));
+    var timeStampCon =
+      d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
+
+    return timeStampCon;
+  };
 
   let sum = 0;
   for (let index = 0; index < expensesList.length; index++) {
@@ -40,16 +49,16 @@ const SeeExpenses = () => {
       <VStack spacing={3}>
         <HeadingH1Component heading={heading} />
         <p>
-          <strong>56.79€</strong>
+          <strong>€ {sum.toFixed(2)}</strong>
         </p>
         <p>
-          <strong>Your monthly budget is: 200.00€</strong>
+          <strong>Your monthly budget is: € {budget}</strong>
         </p>
         <Chart />
         <Heading as="h3" size="lg">
           Details
         </Heading>
-        <DaysSelector />
+        {/* <DaysSelector /> */}
         <TableContainer>
           <Table variant="simple">
             <Thead>
@@ -64,10 +73,10 @@ const SeeExpenses = () => {
               {expensesList.map((expense) => {
                 return (
                   <Tr key={expense._id}>
-                    <Th>{expense.createdAt}</Th>
+                    <Th>{convertedDate(expense.createdAt)}</Th>
                     <Td>{expense.item}</Td>
                     <Td> {expense.category}</Td>
-                    <Td isNumeric>{expense.amount}</Td>
+                    <Td isNumeric>{expense.amount.toFixed(2)}</Td>
                   </Tr>
                 );
               })}
@@ -77,7 +86,7 @@ const SeeExpenses = () => {
                 <Th>Sum</Th>
                 <Th>&emsp;</Th>
                 <Th>&emsp;</Th>
-                <Th isNumeric>€ {sum}</Th>
+                <Th isNumeric>€ {sum.toFixed(2)}</Th>
               </Tr>
             </Tfoot>
           </Table>

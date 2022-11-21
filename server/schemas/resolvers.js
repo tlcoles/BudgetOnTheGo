@@ -7,7 +7,6 @@ const ObjectId = mongoose.Types.ObjectId;
 
 const resolvers = {
   Query: {
-    //! see expenses for a given logged in user
     expenses: async () => {
       return await Expense.find({}).populate("user");
     },
@@ -17,7 +16,7 @@ const resolvers = {
     users: async () => {
       return await User.find({}).populate("expenses");
     },
-    //! another query for the profile info (PASSWORD IS OPTIONAL)
+
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate("expenses");
     },
@@ -42,7 +41,6 @@ const resolvers = {
             },
           },
         ]);
-        console.log(data);
         return data;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -75,7 +73,6 @@ const resolvers = {
     },
 
     login: async (parent, { username, password }) => {
-      //! add email validation //! Check with Tudor
       const user = await User.findOne({ username });
 
       if (!user) {
