@@ -24,7 +24,6 @@ const SignupPage = () => {
     });
 
     Auth.login(data.addUser.token);
-    // in here we're not gonna clg the values bu actually make request to the api to log us in
   };
 
   const handleChange = (event) => {
@@ -34,7 +33,6 @@ const SignupPage = () => {
     switch (name) {
       case "username":
         return setUsername(value);
-
       case "email":
         return setEmail(value);
       case "budget":

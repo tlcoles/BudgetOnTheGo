@@ -24,7 +24,7 @@ const resolvers = {
         return User.findOne({ _id: context.user._id }).populate("expenses");
       }
       throw new AuthenticationError("You need to be logged in!");
-    }, //! Check with Tudor
+    },
   },
 
   Mutation: {
