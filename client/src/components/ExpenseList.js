@@ -11,7 +11,11 @@ const ExpenseList = () => {
   return (
     <ul>
       {expenses.map((expense) => (
-        <ExpenseItem item={expense.item} amount={expense.amount} />
+        <ExpenseItem
+          key={expense.item}
+          item={expense.item}
+          amount={expense.amount}
+        />
       ))}
     </ul>
   );

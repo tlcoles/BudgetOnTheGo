@@ -91,8 +91,9 @@ const resolvers = {
 
     addExpense: async (parent, { item, category, amount }, context) => {
       try {
-        if (!context.user)
+        if (!context.user) {
           throw new AuthenticationError("You are not logged in");
+        }
         const expense = await Expense.create({
           item,
           category,
