@@ -19,8 +19,8 @@ import {
 } from "@chakra-ui/react";
 
 import HeadingH1Component from "../components/Heading";
-// import Chart from "../components/Chart";
-// import DaysSelector from "../components/DaysSelector";
+import Chart from "../components/Chart";
+import DaysSelector from "../components/DaysSelector";
 
 const heading = "Your past expenses";
 
@@ -45,7 +45,7 @@ const SeeExpenses = () => {
         <p>
           <strong>Your monthly budget is: 200.00€</strong>
         </p>
-        {/* <Chart /> */}
+        <Chart />
         <Heading as="h3" size="lg">
           Details
         </Heading>
