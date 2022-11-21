@@ -15,6 +15,7 @@
 - [Screenshots](#screenshots)
 - [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
+- [Required URLs](#required-urls)
 
 ## User Story
 
@@ -111,3 +112,9 @@ Although we have immensely enjoyed working on this app, it could be made more fu
 | [Tammi L. Coles](https://github.com/tlcoles)         | full stack developer |  
 | [Tornike Japaridze](https://github.com/tornicke)     | full stack developer | 
 | [Henriette Kressner](https://github.com/HenniePenny) | full stack developer |
+
+## Required URLs
+
+[Live deployment URL](https://budget-on-the-go-10178.herokuapp.com/)
+
+[GitHub repository URL](https://github.com/tlcoles/BudgetOnTheGo)
