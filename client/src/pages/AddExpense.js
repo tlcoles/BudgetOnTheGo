@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React from "react";
 import HeadingH1Component from "../components/Heading";
 import InputField from "../components/InputField";
@@ -19,6 +20,7 @@ const AddExpensePage = () => {
   // eslint-disable-next-line no-unused-vars
   const handleSubmit = async () => {
     console.log(item, amount, category);
+    // eslint-disable-next-line no-unused-vars
     const { data } = await addExpense({
       variables: { item, amount: parseInt(amount), category },
     });
@@ -28,10 +30,10 @@ const AddExpensePage = () => {
 
     // eslint-disable-next-line default-case
     switch (name) {
-    case "item":
-      return setItem(value);
-    case "amount":
-      return setAmount(value);
+      case "item":
+        return setItem(value);
+      case "amount":
+        return setAmount(value);
     }
   };
 
