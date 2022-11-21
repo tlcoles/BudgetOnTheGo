@@ -71,3 +71,12 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_AGGREGATEDPERSONALCHART = gql`
+  query AggregatedPersonalChart {
+    aggregatedPersonalChart {
+      _id
+      amount
+    }
+  }
+`;
