@@ -1,7 +1,7 @@
 import React from "react";
-// import Budget from "../components/Budget";
-// import Remaining from "../components/Remaining";
-// import ExpenseTotal from "../components/ExpenseTotal";
+import Budget from "../components/Budget";
+import Remaining from "../components/Remaining";
+import ExpenseTotal from "../components/ExpenseTotal";
 
 import {
   Heading,
@@ -17,9 +17,8 @@ import {
 } from "@chakra-ui/react";
 
 import HeadingH1Component from "../components/Heading";
-import Chart from "../components/Chart";
-import DaysSelector from "../components/DaysSelector";
-
+// import Chart from "../components/Chart";
+// import DaysSelector from "../components/DaysSelector";
 
 const heading = "Your past expenses";
 
@@ -28,10 +27,16 @@ const SeeExpenses = () => {
     <div>
       <VStack spacing={3}>
         <HeadingH1Component heading={heading} />
-        <p><strong>56.79€</strong></p>
-        <p><strong>Your monthly budget is: 200.00€</strong></p>
-        <Chart />
-        <Heading as='h3' size='lg'>Details</Heading>
+        <p>
+          <strong>56.79€</strong>
+        </p>
+        <p>
+          <strong>Your monthly budget is: 200.00€</strong>
+        </p>
+        {/* <Chart /> */}
+        <Heading as="h3" size="lg">
+          Details
+        </Heading>
         <DaysSelector />
         <TableContainer>
           <Table variant="simple">
