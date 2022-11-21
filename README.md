@@ -99,7 +99,7 @@ This section lists tools, frameworks and libraries used to develop the "Budget o
 ![image](https://github.com/tlcoles/BudgetOnTheGo/blob/03774b43527608716381dd2099ac64673c3872c8/images/Screenshot3.png)
 
 ## Acknowledgements
-Among others, we would like to thank Nirmeet Baweja, Sade Garcia, Tudor Tocan and Navpreet Ahuja; without whose help, support and guidence, completing the bootcamp and delivering this project would not have been possible. Thanks go out to our fellow classmates who made our learning journey fun and engaging.
+Among others, we would like to thank Nirmeet Baweja, Sade Garcia, Tudor Tocan and Navpreet Ahuja, Tiffany Conroy, Morgan Roderick, Hassan Radi and Tillmann Fiehn; without whose help, support and guidance, completing the bootcamp and delivering this project would not have been possible. Thanks go out to our fellow classmates who made our learning journey fun and engaging.
 
 ## Contact
 
@@ -110,4 +110,4 @@ Although we have immensely enjoyed working on this app, it could be made more fu
 | [Nirmeet Baweja](https://github.com/nirmeet-baweja)  | project manager      | 
 | [Tammi L. Coles](https://github.com/tlcoles)         | full stack developer |  
 | [Tornike Japaridze](https://github.com/tornicke)     | full stack developer | 
-| [Henriette Kressner](https://github.com/HenniePenny) |  full stack developer|
+| [Henriette Kressner](https://github.com/HenniePenny) | full stack developer |
