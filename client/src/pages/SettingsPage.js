@@ -2,16 +2,20 @@
 import React from "react";
 import GeneralButton from "../components/GeneralButton";
 import HeadingH1Component from "../components/Heading";
-// import InputField from "../components/InputField";
 import { useMutation } from "@apollo/client";
 import { UPDATE_USER } from "../utils/mutations";
 import InputFieldNotReq from "../components/InputFieldNotReq";
+import { useQuery } from "@apollo/client";
+import { QUERY_ME } from "../utils/queries.js";
 // import Auth from "../utils/auth";
+
+const heading = "Account Information";
 
 const SettingsPage = () => {
   const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [email, setEmail] = React.useState("");
+  //!Keeping commented out code for later use
+  // const [password, setPassword] = React.useState("");
+  // const [email, setEmail] = React.useState("");
 
   const [updateUser] = useMutation(UPDATE_USER);
 
@@ -19,8 +23,9 @@ const SettingsPage = () => {
     await updateUser({
       variables: { username, email, password },
     });
-    // Auth.login(data.addUser.token);
   };
+  const { data } = useQuery(QUERY_ME);
+  const myUsername = data?.me.username || "";
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -29,14 +34,12 @@ const SettingsPage = () => {
     switch (name) {
       case "username":
         return setUsername(value);
-      case "password":
-        return setPassword(value);
-      case "email":
-        return setEmail(value);
+      // case "password":
+      //   return setPassword(value);
+      // case "email":
+      //   return setEmail(value);
     }
   };
-
-  const heading = "Account Information";
 
   return (
     <div>
@@ -49,7 +52,7 @@ const SettingsPage = () => {
         placeholder={"Username"}
         onChange={handleChange}
       />
-      <InputFieldNotReq
+      {/* <InputFieldNotReq
         label={"Email"}
         value={email}
         name={"email"}
@@ -64,7 +67,7 @@ const SettingsPage = () => {
         type={"password"}
         placeholder={"Password"}
         onChange={handleChange}
-      />
+      /> */}
       <GeneralButton buttonTitle={"Apply"} handleClick={update} />
     </div>
   );
