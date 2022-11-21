@@ -21,13 +21,17 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+  type ChartItem {
+    _id: String
+    amount: Float
+  }
   type Query {
     expenses: [Expense]
     expense(expenseId: ID!): Expense
     users: [User]
     user(username: String!): User
     me: User
-    aggregatedPersonalChart: [Expense]
+    aggregatedPersonalChart: [ChartItem]
   }
   type Mutation {
     addUser(
