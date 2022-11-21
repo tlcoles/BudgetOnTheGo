@@ -30,12 +30,17 @@ const SeeExpenses = () => {
   const expensesList = data?.me.expenses || [];
   const budget = data?.me.budget || 0;
 
+  let sum = 0;
+  for (let index = 0; index < expensesList.length; index++) {
+    sum = sum + expensesList[index].amount;
+  }
+
   return (
     <div>
       <VStack spacing={3}>
         <HeadingH1Component heading={heading} />
         <p>
-          <strong>56.79€</strong>
+          <strong>€ {sum}</strong>
         </p>
         <p>
           <strong>Your monthly budget is: € {budget}</strong>
@@ -72,7 +77,7 @@ const SeeExpenses = () => {
                 <Th>Sum</Th>
                 <Th>&emsp;</Th>
                 <Th>&emsp;</Th>
-                <Th isNumeric>56.79</Th>
+                <Th isNumeric>€ {sum}</Th>
               </Tr>
             </Tfoot>
           </Table>
