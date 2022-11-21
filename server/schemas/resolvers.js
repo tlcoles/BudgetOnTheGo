@@ -2,6 +2,8 @@ const { Expense, User } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 const bcrypt = require("bcrypt");
+const mongoose = require("mongoose");
+const ObjectId = mongoose.Types.ObjectId;
 
 const resolvers = {
   Query: {
@@ -27,8 +29,10 @@ const resolvers = {
     },
     aggregatedPersonalChart: async (parent, args, context) => {
       if (context.user) {
+        console.log("userId", context.user._id);
         const data = await Expense.aggregate([
-          { $match: { user: { $eq: { $toObjectId: context.user._id } } } },
+          { $match: { user: { $eq: { $toObjectId: "context.user._id" } } } },
+          // { $match: { _user: { $eq: {ObjectId("637b7bf2acc202d8d5424c94") } } } },
           {
             $group: {
               _id: "$category",
