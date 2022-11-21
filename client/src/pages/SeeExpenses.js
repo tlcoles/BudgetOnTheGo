@@ -19,7 +19,7 @@ import {
 } from "@chakra-ui/react";
 
 import HeadingH1Component from "../components/Heading";
-// import Chart from "../components/Chart";
+import Chart from "../components/Chart";
 // import DaysSelector from "../components/DaysSelector";
 
 const heading = "Your past expenses";
@@ -34,11 +34,7 @@ const SeeExpenses = () => {
   const convertedDate = function (timestamp) {
     var d = new Date(parseInt(timestamp));
     var timeStampCon =
-      d.getDate() +
-      "/" +
-      (d.getMonth() +1) +
-      "/" +
-      d.getFullYear();
+      d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
 
     return timeStampCon;
   };
@@ -58,7 +54,7 @@ const SeeExpenses = () => {
         <p>
           <strong>Your monthly budget is: € {budget}</strong>
         </p>
-        {/* <Chart /> */}
+        <Chart />
         <Heading as="h3" size="lg">
           Details
         </Heading>

@@ -2,10 +2,11 @@ const { Expense, User } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 const bcrypt = require("bcrypt");
+const mongoose = require("mongoose");
+const ObjectId = mongoose.Types.ObjectId;
 
 const resolvers = {
   Query: {
-    //! see expenses for a given logged in user
     expenses: async () => {
       return await Expense.find({}).populate("user");
     },
@@ -15,13 +16,32 @@ const resolvers = {
     users: async () => {
       return await User.find({}).populate("expenses");
     },
-    //! another query for the profile info (PASSWORD IS OPTIONAL)
+
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate("expenses");
     },
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate("expenses");
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    aggregatedPersonalChart: async (parent, args, context) => {
+      if (context.user) {
+        const data = await Expense.aggregate([
+          {
+            $match: {
+              user: ObjectId(context.user._id),
+            },
+          },
+          {
+            $group: {
+              _id: "$category",
+              amount: { $sum: "$amount" },
+            },
+          },
+        ]);
+        return data;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -53,7 +73,6 @@ const resolvers = {
     },
 
     login: async (parent, { username, password }) => {
-      //! add email validation //! Check with Tudor
       const user = await User.findOne({ username });
 
       if (!user) {
@@ -72,8 +91,9 @@ const resolvers = {
 
     addExpense: async (parent, { item, category, amount }, context) => {
       try {
-        if (!context.user)
+        if (!context.user) {
           throw new AuthenticationError("You are not logged in");
+        }
         const expense = await Expense.create({
           item,
           category,
