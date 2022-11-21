@@ -33,7 +33,6 @@ const SignupPage = () => {
     switch (name) {
       case "username":
         return setUsername(value);
-
       case "email":
         return setEmail(value);
       case "budget":
