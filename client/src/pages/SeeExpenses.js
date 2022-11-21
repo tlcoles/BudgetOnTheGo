@@ -53,7 +53,7 @@ const SeeExpenses = () => {
       <VStack spacing={3}>
         <HeadingH1Component heading={heading} />
         <p>
-          <strong>€ {sum}</strong>
+          <strong>€ {sum.toFixed(2)}</strong>
         </p>
         <p>
           <strong>Your monthly budget is: € {budget}</strong>
@@ -80,7 +80,7 @@ const SeeExpenses = () => {
                     <Th>{convertedDate(expense.createdAt)}</Th>
                     <Td>{expense.item}</Td>
                     <Td> {expense.category}</Td>
-                    <Td isNumeric>{expense.amount}</Td>
+                    <Td isNumeric>{expense.amount.toFixed(2)}</Td>
                   </Tr>
                 );
               })}
@@ -90,7 +90,7 @@ const SeeExpenses = () => {
                 <Th>Sum</Th>
                 <Th>&emsp;</Th>
                 <Th>&emsp;</Th>
-                <Th isNumeric>€ {sum}</Th>
+                <Th isNumeric>€ {sum.toFixed(2)}</Th>
               </Tr>
             </Tfoot>
           </Table>
