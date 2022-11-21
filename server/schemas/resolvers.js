@@ -29,14 +29,16 @@ const resolvers = {
     },
     aggregatedPersonalChart: async (parent, args, context) => {
       if (context.user) {
-        console.log("userId", context.user._id);
         const data = await Expense.aggregate([
-          { $match: { user: { $eq: { $toObjectId: "context.user._id" } } } },
-          // { $match: { _user: { $eq: {ObjectId("637b7bf2acc202d8d5424c94") } } } },
+          {
+            $match: {
+              user: ObjectId(context.user._id),
+            },
+          },
           {
             $group: {
               _id: "$category",
-              value: { $sum: "$amount" },
+              amount: { $sum: "$amount" },
             },
           },
         ]);
