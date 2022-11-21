@@ -15,7 +15,7 @@ This is a:
 
 ### Links
 
-- **Issue**: [Link to the issue](https://github.com/CodeYourFuture/tech-team/issues)
+- **Issue**: [Link to the issue](https://github.com/tlcoles/BudgetOnTheGo/issues)
 
 ### Reminder to reviewers
 
