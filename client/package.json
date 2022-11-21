@@ -5,6 +5,7 @@
     "node": "16.x"
   },
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@apollo/client": "^3.7.1",
     "@chakra-ui/icons": "^2.0.12",
@@ -32,6 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:3001",
   "eslintConfig": {
     "extends": [
       "react-app",

@@ -1,7 +1,9 @@
 import React from "react";
-import Budget from "../components/Budget";
-import Remaining from "../components/Remaining";
-import ExpenseTotal from "../components/ExpenseTotal";
+// import Budget from "../components/Budget";
+// import Remaining from "../components/Remaining";
+// import ExpenseTotal from "../components/ExpenseTotal";
+import { useQuery } from "@apollo/client";
+import { QUERY_ME } from "../utils/queries.js";
 
 import {
   Heading,
@@ -23,6 +25,16 @@ import HeadingH1Component from "../components/Heading";
 const heading = "Your past expenses";
 
 const SeeExpenses = () => {
+  const { data } = useQuery(QUERY_ME);
+
+  const expensesList = data?.me.expenses || [];
+  const budget = data?.me.budget || 0;
+
+  let sum = 0;
+  for (let index = 0; index < expensesList.length; index++) {
+    sum = sum + expensesList[index].amount;
+  }
+
   return (
     <div>
       <VStack spacing={3}>
@@ -49,31 +61,23 @@ const SeeExpenses = () => {
               </Tr>
             </Thead>
             <Tbody>
-              <Tr>
-                <Th>14.11.2022</Th>
-                <Td>apples and pears</Td>
-                <Td>food</Td>
-                <Td isNumeric>25.40</Td>
-              </Tr>
-              <Tr>
-                <Th>14.11.2022</Th>
-                <Td>dress at Humana</Td>
-                <Td>clothing</Td>
-                <Td isNumeric>30.48</Td>
-              </Tr>
-              <Tr>
-                <Th>14.11.2022</Th>
-                <Td>new curtains at Target</Td>
-                <Td>household</Td>
-                <Td isNumeric>0.91</Td>
-              </Tr>
+              {expensesList.map((expense) => {
+                return (
+                  <Tr key={expense._id}>
+                    <Th>{expense.createdAt}</Th>
+                    <Td>{expense.item}</Td>
+                    <Td> {expense.category}</Td>
+                    <Td isNumeric>{expense.amount}</Td>
+                  </Tr>
+                );
+              })}
             </Tbody>
             <Tfoot>
               <Tr>
                 <Th>Sum</Th>
                 <Th>&emsp;</Th>
                 <Th>&emsp;</Th>
-                <Th isNumeric>56.79</Th>
+                <Th isNumeric>€ {sum}</Th>
               </Tr>
             </Tfoot>
           </Table>
