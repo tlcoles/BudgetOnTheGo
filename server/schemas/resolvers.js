@@ -7,16 +7,23 @@ const ObjectId = mongoose.Types.ObjectId;
 
 const resolvers = {
   Query: {
+    /**
+     * this query should be protected just like other queries.
+     * i.e. only logged in users should be able to see the expenses.
+     * And also, the user should be prohibited from seeing other users' data.
+     * They should only be able to query their own expenses.
+     */
     expenses: async () => {
       return await Expense.find({}).populate("user");
     },
     expense: async (parent, { expenseId }) => {
       return Expense.findOne({ _id: expenseId });
     },
+    /** This should be protected as well. */
     users: async () => {
       return await User.find({}).populate("expenses");
     },
-
+    /** This should be protected as well. */
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate("expenses");
     },
