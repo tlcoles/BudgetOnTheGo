@@ -1,5 +1,10 @@
 import * as React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -15,6 +20,7 @@ import SignupPage from "./pages/Signup";
 import AddExpensePage from "./pages/AddExpense";
 import SettingsPage from "./pages/SettingsPage";
 import ExpensesPage from "./pages/SeeExpenses";
+import Auth from "./utils/auth";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -45,7 +51,22 @@ const App = () => {
           <Navbar />
           <Container>
             <Routes>
-              <Route path="/" element={<AddExpensePage />} />
+              {/**
+               * Routes are not protected from unauthorised use.
+               * They should be protected using the loggedIn() function.
+               * One way to achieve this is as shown below.
+               * You can also use conditional rendering for this.
+               */}
+              <Route
+                path="/"
+                element={
+                  Auth.loggedIn() ? (
+                    <AddExpensePage />
+                  ) : (
+                    <Navigate to="/login" />
+                  )
+                }
+              />
               <Route path="/expenses" element={<ExpensesPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />

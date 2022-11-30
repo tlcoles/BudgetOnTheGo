@@ -27,6 +27,10 @@ const heading = "Your past expenses";
 const SeeExpenses = () => {
   const { data } = useQuery(QUERY_ME);
 
+  /**
+   * You could have received the sum of expenses from backend
+   * just like the budget.
+   */
   const expensesList = data?.me.expenses || [];
   const budget = data?.me.budget || 0;
 
@@ -39,6 +43,11 @@ const SeeExpenses = () => {
     return timeStampCon;
   };
 
+  /**
+   * It is better to handle the calculations on the backend
+   * and the frontend should receive the final results.
+   * Calculations on the frontend side slow down your application.
+   */
   let sum = 0;
   for (let index = 0; index < expensesList.length; index++) {
     sum = sum + expensesList[index].amount;

@@ -29,7 +29,6 @@ const SignupPage = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    // eslint-disable-next-line default-case
     switch (name) {
       case "username":
         return setUsername(value);
@@ -39,6 +38,8 @@ const SignupPage = () => {
         return setBudget(value);
       case "password":
         return setPassword(value);
+      default:
+        return; // adding a default case protects your code against unexpected behaviour and should be added even if its empty.
     }
   };
 

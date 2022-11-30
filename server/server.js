@@ -17,6 +17,14 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+/**
+ * You do not need to specify every single page individually for production.
+ * The following lines of code should handle that under normal circumstances.
+ * 
+ * if (process.env.NODE_ENV === 'production') {
+ *    app.use(express.static(path.join(__dirname, '../client/build')));
+ * }
+ */
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
   app.get("/expenses", (req, res) => {

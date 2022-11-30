@@ -28,12 +28,13 @@ const AddExpensePage = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    // eslint-disable-next-line default-case
     switch (name) {
       case "item":
         return setItem(value);
       case "amount":
         return setAmount(value);
+      default:
+        return; // adding a default case protects your code against unexpected behaviour and should be added even if its empty.
     }
   };
 
